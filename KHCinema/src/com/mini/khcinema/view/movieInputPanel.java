@@ -137,22 +137,22 @@ public class movieInputPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (String.valueOf(tfTitle.getText()).equals("")) {
 					JOptionPane.showMessageDialog(admin, "제목을 입력해주세요.", "경고", JOptionPane.ERROR_MESSAGE);
-				} else if (String.valueOf(tfActors.getText()).equals("")) {
+				} else if (tfActors.getText().equals("")) {
 					JOptionPane.showMessageDialog(admin, "출연진을 입력해주세요.", "경고", JOptionPane.ERROR_MESSAGE);
-				} else if (String.valueOf(tfDirector.getText()).equals("")) {
+				} else if (tfDirector.getText().equals("")) {
 					JOptionPane.showMessageDialog(admin, "감독을 입력해주세요.", "경고", JOptionPane.ERROR_MESSAGE);
-				} else if (String.valueOf(tfpremier.getText()).equals("")) {
+				} else if (tfpremier.getText().equals("")) {
 					JOptionPane.showMessageDialog(admin, "개봉일을 입력해주세요.", "경고", JOptionPane.ERROR_MESSAGE);
-				} else if (String.valueOf(tfRuntime.getText()).equals("")) {
+				} else if (tfRuntime.getText().equals("")) {
 					JOptionPane.showMessageDialog(admin, "상영시간을 입력해주세요.", "경고", JOptionPane.ERROR_MESSAGE);
-				} else if (String.valueOf(tfSummary.getText()).equals("")) {
+				} else if (tfSummary.getText().equals("")) {
 					JOptionPane.showMessageDialog(admin, "즐거리를 입력해주세요.", "경고", JOptionPane.ERROR_MESSAGE);
 				} else if (f == null) {
 					JOptionPane.showMessageDialog(admin, "사진을 선택해주세요.", "경고", JOptionPane.ERROR_MESSAGE);
 				} else {
-					new MovieController().inputMovie(String.valueOf(tfTitle.getText()),
-							String.valueOf(tfActors.getText()), String.valueOf(tfDirector.getText()),
-							String.valueOf(tfpremier.getText()), String.valueOf(tfRuntime.getText()), String.valueOf(tfSummary.getText()), f);
+					new MovieController().inputMovie(tfTitle.getText(),
+							tfActors.getText(), tfDirector.getText(),
+							tfpremier.getText(), tfRuntime.getText(), tfSummary.getText(), f);
 					
 					
 				}
