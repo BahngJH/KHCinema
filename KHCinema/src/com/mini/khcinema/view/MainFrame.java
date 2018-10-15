@@ -53,6 +53,16 @@ public class MainFrame extends JFrame {
 		
 		//영화 예매 버튼
 		JButton reserveButton = new JButton("\uC601\uD654 \uC608\uB9E4");
+		reserveButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//화면 전환
+				startPanel.removeAll();
+				startPanel.add(new ChoicePanel(startPanel));
+				revalidate();
+				repaint();
+			}
+		});
 		panel.add(reserveButton);
 		
 		//음식 구매 버튼
