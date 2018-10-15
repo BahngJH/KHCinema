@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Reservation extends JPanel {
-	// String seat[] = new String[10];
 	int w = 0;
 	private Reservation rj;
 	private JPanel mf; // 메인 프레임을 해야하는데 잘못 만들어서 이걸로 대체함 자료형은 좀 틀리고 변수명만 맞춤
@@ -55,7 +54,6 @@ public class Reservation extends JPanel {
 				if (seatgrid.select != count) {
 					JOptionPane.showMessageDialog(null, "좌석을 선택하신 만큼 선택해주세요!");
 				} else {
-					// TODO Auto-generated method stub
 					for (int i = 0; i < 7; i++) {
 						for (int j = 0; j < 8; j++) {
 							if (seatgrid.seatflag[i][j] == true) {

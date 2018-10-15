@@ -14,10 +14,11 @@ import com.mini.khcinema.model.MoveReserve;
 public class PaymentController {
 
 	String filename = "reserve.txt";
-	// ���������� �����ͼ� ArrayList�� ������ �� ��ȯ�ϴ� �޼ҵ�
+	//예약정보를 가져와서 ArrayList에 저장한 후 반환하는 메소드
 
 	public ArrayList<MoveReserve> getMoveReserve() {
-
+		//현재 .txt 파일로 저장된 내용(데이터)을 받을 콜렉션 변수를 만든다.
+		//MoveReserve 자료형만 담기도록 하는 처리.
 		ArrayList<MoveReserve> MoveReserve = null;
 
 		File moveReserveFile = new File(filename);
@@ -26,55 +27,48 @@ public class PaymentController {
 			try {
 				moveReserveFile.createNewFile();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
-		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(moveReserveFile))) {
 			try {
 				MoveReserve = (ArrayList) ois.readObject();
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		return MoveReserve;
 	}
 
+	//데이터를 텍스트 파일로 저장하는 메소드.
 	public void saveMoveReserve(ArrayList<MoveReserve> MoveReserve) {
 		File moveReserveFile = new File(filename);
 
-		System.out.println("����");
+		System.out.println("텍스트 파일로 저장");
 		if (!moveReserveFile.exists()) {
 			try {
 				moveReserveFile.createNewFile();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
-		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(moveReserveFile))) {
 			try {
 				oos.writeObject(MoveReserve);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 

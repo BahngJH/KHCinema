@@ -22,8 +22,8 @@ public class Payment extends JPanel {
 	static int count = 0;
 	private Payment pm;
 
-	public Payment(String movititle, String date, String movitime, String[] seat, int personNum,
-			String myID, JPanel mf, int price) {
+	public Payment(String movititle, String date, String movitime, String[] seat, int personNum, String myID, JPanel mf,
+			int price) {
 		setBackground(Color.LIGHT_GRAY);
 		setForeground(new Color(0, 0, 0));
 		setLayout(null);
@@ -39,16 +39,16 @@ public class Payment extends JPanel {
 		}
 		info.setText(movititle + " " + date + " 상영시간 " + movitime);
 		add(info);
-		
+
 		JLabel payinfo = new JLabel("payinfo");
 		payinfo.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		payinfo.setText(personNum + "명 좌석 "+ seatList + "" );
-		payinfo.setBounds(263, 467, 253, 15); 
+		payinfo.setText(personNum + "명 좌석 " + seatList + "");
+		payinfo.setBounds(263, 467, 253, 15);
 		add(payinfo);
-		
+
 		JLabel seatinfo = new JLabel("payinfo");
 		seatinfo.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		seatinfo.setText("구매자: " + myID + " 가격: "+price );
+		seatinfo.setText("구매자: " + myID + " 가격: " + price);
 		seatinfo.setBounds(263, 447, 253, 15);
 		add(seatinfo);
 
@@ -64,8 +64,8 @@ public class Payment extends JPanel {
 		JButton cancelbtn = new JButton("취소");
 		cancelbtn.setBounds(592, 504, 75, 27);
 		add(cancelbtn);
-		
-		ImageIcon ic = new ImageIcon("Images/"+movititle+".jpg");
+
+		ImageIcon ic = new ImageIcon("Images/" + movititle + ".jpg");
 		Image originImg = ic.getImage();
 		Image changedImg = originImg.getScaledInstance(270, 300, Image.SCALE_SMOOTH);
 		ic = new ImageIcon(changedImg);
@@ -73,7 +73,7 @@ public class Payment extends JPanel {
 		lblNewLabel.setBackground(SystemColor.inactiveCaption);
 		lblNewLabel.setBounds(263, 102, 268, 306);
 		add(lblNewLabel);
-		
+
 		ImageIcon ic2 = new ImageIcon("Images/ticket.png");
 		Image originImg2 = ic2.getImage();
 		Image chagedImg2 = originImg2.getScaledInstance(350, 170, Image.SCALE_SMOOTH);
@@ -81,30 +81,27 @@ public class Payment extends JPanel {
 		JLabel model_ticket = new JLabel(ic2);
 		model_ticket.setBounds(211, 393, 408, 130);
 		add(model_ticket);
-							
+
 		paybtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				MoveReserve info = new MoveReserve(movititle, date, movitime, seat, personNum, myID);
 				ArrayList list = new ArrayList();
 				mf.remove(pm);
-				// mf.add(new Reservation(mf));
 				mf.revalidate();
 				mf.repaint();
 				System.out.println(info);
 
 				// 기존에 가지고 있는 예약 데이터를 list에 뽑아온다.
-				
 				try {
 					File moveReserveFile = new File("reserve.txt");
-					//내용이 없으면 건너띄도록 하는 조건문
-					if(moveReserveFile.length()!=0) {
-					//파일이 없으면 생성하도록 하는 조건문
-					if (moveReserveFile.exists()) {
-						list = new PaymentController().getMoveReserve();
-					}
+					// 내용이 없으면 건너띄도록 하는 조건문
+					if (moveReserveFile.length() != 0) {
+						// 파일이 없으면 생성하도록 하는 조건문
+						if (moveReserveFile.exists()) {
+							list = new PaymentController().getMoveReserve();
+						}
 					}
 				} catch (NullPointerException er) {
 
