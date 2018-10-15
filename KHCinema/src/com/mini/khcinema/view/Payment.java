@@ -75,9 +75,7 @@ public class Payment extends JPanel {
 		JLabel model_ticket = new JLabel(ic2);
 		model_ticket.setBounds(211, 393, 408, 130);
 		add(model_ticket);
-		
-		String name = "이게 맞는건가";
-		
+				
 		paybtn.addActionListener(new ActionListener() {
 
 			@Override
