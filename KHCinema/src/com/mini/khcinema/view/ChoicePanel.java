@@ -546,9 +546,7 @@ public class ChoicePanel extends JPanel {
 		nextBtn.addMouseListener(new MouseAdapter() {
 
 			@Override
-            public void mouseClicked(MouseEvent e) {
-               // TODO Auto-generated method stub
-                                                
+            public void mouseClicked(MouseEvent e) {                                                
                if(movieList.getSelectedValue() != null && dateList.getSelectedValue() != null && timeList. getSelectedValue() != null && (teenCount != 0 || adultCount != 0) )
                {
                   System.out.println( movieList.getSelectedValue() + "" + dateList.getSelectedValue() + " "+  timeList. getSelectedValue() + " " + teenCount + " " + adultCount);
