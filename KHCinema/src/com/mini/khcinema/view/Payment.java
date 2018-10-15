@@ -31,20 +31,26 @@ public class Payment extends JPanel {
 		this.pm = this;
 		JLabel info = new JLabel("Reservation info");
 		info.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		info.setBounds(233, 436, 268, 27);
+		info.setBounds(263, 418, 268, 27);
 
 		ArrayList seatList = new ArrayList();
 		for (int i = 0; i < personNum; i++) {
 			seatList.add(seat[i]);
 		}
-		info.setText(movititle + " " + date + " 상영시간" + movitime + "분");
+		info.setText(movititle + " " + date + " 상영시간 " + movitime);
 		add(info);
 		
 		JLabel payinfo = new JLabel("payinfo");
 		payinfo.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		payinfo.setText("구매자:" + myID + " " + personNum + "명 좌석 "+ seatList + "");
-		payinfo.setBounds(233, 465, 253, 15);
+		payinfo.setText(personNum + "명 좌석 "+ seatList + "" );
+		payinfo.setBounds(263, 472, 253, 15); 
 		add(payinfo);
+		
+		JLabel seatinfo = new JLabel("payinfo");
+		seatinfo.setFont(new Font("맑은 고딕", Font.BOLD, 12));
+		seatinfo.setText("구매자: " + myID + " 가격 :" );
+		seatinfo.setBounds(263, 447, 253, 15);
+		add(seatinfo);
 
 		JLabel lblTitle = new JLabel("예매 정보 확인!");
 		lblTitle.setFont(new Font("맑은 고딕", Font.PLAIN, 40));
@@ -70,7 +76,7 @@ public class Payment extends JPanel {
 		
 		ImageIcon ic2 = new ImageIcon("Images/ticket.png");
 		Image originImg2 = ic2.getImage();
-		Image chagedImg2 = originImg2.getScaledInstance(400, 140, Image.SCALE_SMOOTH);
+		Image chagedImg2 = originImg2.getScaledInstance(350, 170, Image.SCALE_SMOOTH);
 		ic2 = new ImageIcon(chagedImg2);
 		JLabel model_ticket = new JLabel(ic2);
 		model_ticket.setBounds(211, 393, 408, 130);
