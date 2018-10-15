@@ -130,7 +130,7 @@ public class movieInputPanel extends JPanel {
 
 		JButton btnAdd = new JButton("영화 추가");
 
-		btnAdd.setBounds(2, 302, 97, 23);
+		btnAdd.setBounds(0, 278, 97, 23);
 		btnAdd.addActionListener(new ActionListener() {
 
 			@Override
@@ -152,12 +152,29 @@ public class movieInputPanel extends JPanel {
 				} else {
 					new MovieController().inputMovie(String.valueOf(tfTitle.getText()),
 							String.valueOf(tfActors.getText()), String.valueOf(tfDirector.getText()),
-							String.valueOf(tfpremier.getText()), String.valueOf(tfRuntime), String.valueOf(tfSummary.getText()), f);
+							String.valueOf(tfpremier.getText()), String.valueOf(tfRuntime.getText()), String.valueOf(tfSummary.getText()), f);
+					
+					
 				}
 
 			}
 		});
 		add(btnAdd);
+		
+		JButton button = new JButton("취소");
+		button.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				admin.getContentPane().removeAll();
+				admin.getContentPane().add(new AdminMainPanel(admin));
+				admin.revalidate();
+				admin.repaint();
+				
+			}
+		});
+		button.setBounds(0, 301, 97, 23);
+		add(button);
 
 	}
 }

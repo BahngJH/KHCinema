@@ -72,6 +72,7 @@ public class MovieController {
 		saveMovies(movies);
 		
 		
+		
 	}
 	
 	public void inputMovieTest() {
