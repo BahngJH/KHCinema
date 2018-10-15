@@ -68,13 +68,13 @@ public class Payment extends JPanel {
 		lblNewLabel.setBounds(263, 102, 268, 306);
 		add(lblNewLabel);
 		
-		ImageIcon ic2 = new ImageIcon("Images/ticket.png");
+		/*ImageIcon ic2 = new ImageIcon("Images/ticket.png");
 		Image originImg2 = ic2.getImage();
 		Image chagedImg2 = originImg2.getScaledInstance(400, 140, Image.SCALE_SMOOTH);
 		ic2 = new ImageIcon(chagedImg2);
 		JLabel model_ticket = new JLabel(ic2);
 		model_ticket.setBounds(211, 393, 408, 130);
-		add(model_ticket);
+		add(model_ticket);*/
 		
 		paybtn.addActionListener(new ActionListener() {
 
