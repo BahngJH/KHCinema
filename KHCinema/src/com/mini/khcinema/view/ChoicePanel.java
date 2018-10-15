@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
@@ -398,46 +399,28 @@ public class ChoicePanel extends JPanel {
 				
 				nextBtn.addMouseListener(new MouseAdapter() {
 					
-					/*@Override
-					public void mouseClicked(MouseEvent e) {
-						// TODO Auto-generated method stub
-						
-						
-						if(movieList.getSelectedValue() != null && dateList.getSelectedValue() != null && timeList. getSelectedValue() != null && (teenCount == 0 || adultCount ==0) )
-						{
-							nextBtn.setEnabled(true);
-						}
-						else
-						{
-							nextBtn.setEnabled(false);
-						}
-						
-						
-						System.out.println( movieList.getSelectedValue() + "" + dateList.getSelectedValue() + " "+  timeList. getSelectedValue() + " " + teenCount + " " + adultCount);
-						//startPanel.removeAll();
-						//여기에 클래스 이름
-						//startPanel.add(new (startPanel, movieList.getSelectedValue(), dateList.getSelectedValue(), timeList.getSelectedValue(), teenCount, adultCount ));
-						
-						//startPanel.revalidate();
-						//startPanel.repaint();
-						
-					}*/
-					
 					@Override
-					public void mousePressed(MouseEvent e) {
-						// TODO Auto-generated method stub
-						if(movieList.getSelectedValue() != null && dateList.getSelectedValue() != null && timeList. getSelectedValue() != null && (teenCount != 0 || adultCount != 0) )
-						{
-							nextBtn.setEnabled(true);
-						}
-						else
-						{
-							nextBtn.setEnabled(false);
-						}
-						
-						
-						System.out.println( movieList.getSelectedValue() + "" + dateList.getSelectedValue() + " "+  timeList. getSelectedValue() + " " + teenCount + " " + adultCount);
-					}
+		               public void mouseClicked(MouseEvent e) {
+		                  // TODO Auto-generated method stub
+		                                                   
+		                  if(movieList.getSelectedValue() != null && dateList.getSelectedValue() != null && timeList. getSelectedValue() != null && (teenCount != 0 || adultCount != 0) )
+		                  {
+		                     System.out.println( movieList.getSelectedValue() + "" + dateList.getSelectedValue() + " "+  timeList. getSelectedValue() + " " + teenCount + " " + adultCount);
+		                     startPanel.removeAll();
+		                     
+		                     startPanel.add(new Reservation(startPanel,(String)movieList.getSelectedValue(), (String)dateList.getSelectedValue(), (String)timeList.getSelectedValue(), teenCount, adultCount ));
+		                     
+		                     startPanel.revalidate();
+		                     startPanel.repaint();
+		                  
+		                  }
+		                  else
+		                  {
+		                     JOptionPane.showMessageDialog(null, "전부 선택해주세요.");
+		                  }
+		                  
+		                  
+		               }
 					
 				});
 				
