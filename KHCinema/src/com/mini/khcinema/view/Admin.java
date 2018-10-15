@@ -25,6 +25,7 @@ public class Admin extends JFrame {
 		MovieController mc = new MovieController();
 		ArrayList<Movie> movies = mc.getMovies();
 		
+		setLocationRelativeTo(null);
 		setBackground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setBackground(new Color(255, 228, 181));

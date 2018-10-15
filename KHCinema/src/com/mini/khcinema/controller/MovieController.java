@@ -17,10 +17,10 @@ public class MovieController {
 
 	// 영화 정보를 가져와서 ArrayList에 저장한 후 반환하는 메소드
 	public ArrayList<Movie> getMovies() {
-		ArrayList<Movie> Movies = null;
+		ArrayList<Movie> movies = null;
 		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
 
-			Movies = (ArrayList) ois.readObject();
+			movies = (ArrayList) ois.readObject();
 
 		} catch (IOException e) {
 			e.getStackTrace();
@@ -28,10 +28,10 @@ public class MovieController {
 			e.printStackTrace();
 		}
 
-		return Movies;
+		return movies;
 	}
 
-	public void saveMovies(ArrayList<Movie> Movies) {
+	public void saveMovies(ArrayList<Movie> movies) {
 		File movieFile = new File(filename);
 
 		// 파일 없을 경우 만들기
@@ -44,12 +44,36 @@ public class MovieController {
 		}
 		
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
-			oos.writeObject(Movies);
+			oos.writeObject(movies);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
+	public void inputMovie(String title, String actors, String director, String premier, String runTime, String summary, File image) {
+		ArrayList<Movie> movies;
+
+		Movie movie = new Movie();
+		movie.setTitle(title);
+		movie.setActors(actors.split(","));
+		movie.setDirector(director);
+		movie.setPremier(premier);
+		movie.setRunTime(runTime);
+		movie.setSummary(summary);
+		
+		File newImage = new File("Images/"+title+".jpg");
+		
+		image.renameTo(newImage);
+		
+		movie.setImagePath(newImage.getPath());
+		
+		movies = getMovies();
+		movies.add(movie);
+		saveMovies(movies);
+		
+		
+	}
+	
 	public void inputMovieTest() {
 		ArrayList<Movie> Movies = new ArrayList<>();
 
