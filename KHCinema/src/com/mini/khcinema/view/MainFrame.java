@@ -27,6 +27,7 @@ public class MainFrame extends JFrame {
 		
 		setSize(900, 600);
 		setResizable(false);
+		setTitle("KH Cinema");
 		
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		

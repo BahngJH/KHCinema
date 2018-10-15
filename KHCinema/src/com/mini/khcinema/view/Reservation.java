@@ -21,6 +21,7 @@ public class Reservation extends JPanel {
 	public Reservation(JPanel mf, String title, String date, String movitime, int teenCount, int adultCount) {
 
 		int count = teenCount + adultCount;
+		int price = (teenCount*6000)+(adultCount*10000); 
 
 		setLayout(new BorderLayout());
 		this.mf = mf;
@@ -67,7 +68,7 @@ public class Reservation extends JPanel {
 					for (int i = 0; i < w; i++)
 						System.out.println(seat[i]);
 					mf.remove(rj);
-					mf.add(new Payment(title, date, movitime, seat, count, "wpxm2003", mf));
+					mf.add(new Payment(title, date, movitime, seat, count, "wpxm2003", mf,price));
 					mf.revalidate();
 					mf.repaint();
 				}

@@ -22,8 +22,8 @@ public class Payment extends JPanel {
 	static int count = 0;
 	private Payment pm;
 
-	public Payment(String movititle, String date, String movitime, String[] seat, /*int seatNum,*/ int personNum,
-			String myID, JPanel mf) {
+	public Payment(String movititle, String date, String movitime, String[] seat, int personNum,
+			String myID, JPanel mf, int price) {
 		setBackground(Color.LIGHT_GRAY);
 		setForeground(new Color(0, 0, 0));
 		setLayout(null);
@@ -31,7 +31,7 @@ public class Payment extends JPanel {
 		this.pm = this;
 		JLabel info = new JLabel("Reservation info");
 		info.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		info.setBounds(263, 418, 268, 27);
+		info.setBounds(263, 427, 268, 17);
 
 		ArrayList seatList = new ArrayList();
 		for (int i = 0; i < personNum; i++) {
@@ -43,12 +43,12 @@ public class Payment extends JPanel {
 		JLabel payinfo = new JLabel("payinfo");
 		payinfo.setFont(new Font("맑은 고딕", Font.BOLD, 12));
 		payinfo.setText(personNum + "명 좌석 "+ seatList + "" );
-		payinfo.setBounds(263, 472, 253, 15); 
+		payinfo.setBounds(263, 467, 253, 15); 
 		add(payinfo);
 		
 		JLabel seatinfo = new JLabel("payinfo");
 		seatinfo.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		seatinfo.setText("구매자: " + myID + " 가격 :" );
+		seatinfo.setText("구매자: " + myID + " 가격: "+price );
 		seatinfo.setBounds(263, 447, 253, 15);
 		add(seatinfo);
 
