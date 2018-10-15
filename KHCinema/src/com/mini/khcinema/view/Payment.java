@@ -76,6 +76,7 @@ public class Payment extends JPanel {
 		model_ticket.setBounds(211, 393, 408, 130);
 		add(model_ticket);
 		
+		String name = "1233333";
 						
 		paybtn.addActionListener(new ActionListener() {
 
