@@ -82,6 +82,8 @@ public class Payment extends JPanel {
 		model_ticket.setBounds(211, 393, 408, 130);
 		add(model_ticket);
 
+		String test = "커밋 테스트중";
+		
 		paybtn.addActionListener(new ActionListener() {
 
 			@Override
