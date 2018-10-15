@@ -115,9 +115,8 @@ public class Payment extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				mf.remove(pm);
-				// mf.add(new Reservation(mf));
+				mf.add(new StartPanel());
 				mf.revalidate();
 				mf.repaint();
 			}
