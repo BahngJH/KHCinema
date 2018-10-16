@@ -16,6 +16,7 @@ import javax.swing.border.BevelBorder;
 import com.mini.khcinema.controller.ReviewController;
 import com.mini.khcinema.model.Movie;
 import com.mini.khcinema.model.Review;
+import java.awt.Color;
 
 public class InfoPanel extends JPanel {
 	public InfoPanel(Movie movie) {
@@ -37,7 +38,6 @@ public class InfoPanel extends JPanel {
 		
 		
 		JPanel infoPanel = new JPanel();
-		infoPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		add(infoPanel, BorderLayout.CENTER);
 		GridBagLayout gbl_infoPanel = new GridBagLayout();
 		gbl_infoPanel.columnWidths = new int[]{115, 115, 115, 115, 0};
@@ -162,9 +162,7 @@ public class InfoPanel extends JPanel {
 		// 리뷰 파일 열어서 정보 가져오기
 		ArrayList<Review> reviews = new ReviewController().getComment(filename);
 		double avg;
-				
-		System.out.println(reviews);
-		
+						
 		if (reviews.size() > 0) {
 			double sum = 0;
 			for (Review r : reviews) {

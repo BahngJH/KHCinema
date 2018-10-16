@@ -1,14 +1,16 @@
 package com.mini.khcinema.view;
 
-import javax.swing.JFrame;
 import java.awt.BorderLayout;
-import javax.swing.JPanel;
+import java.awt.Color;
 import java.awt.GridLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
 	MainFrame mainFrame = this;
@@ -39,7 +41,13 @@ public class MainFrame extends JFrame {
 		getContentPane().add(startPanel, BorderLayout.CENTER);
 		
 		//상영 중인 영화 버튼
-		JButton nowMovieButton = new JButton("\uD604\uC7AC \uC0C1\uC601 \uC601\uD654");
+		ImageIcon ic = new ImageIcon("Images/nowMovie.png");
+		Image originImg = ic.getImage();
+		Image changedImg = originImg.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+		ic = new ImageIcon(changedImg);
+		
+		JButton nowMovieButton = new JButton("  \uD604\uC7AC \uC0C1\uC601 \uC601\uD654", ic);
+		nowMovieButton.setBackground(new Color(179,228,227));
 		nowMovieButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -53,7 +61,13 @@ public class MainFrame extends JFrame {
 		panel.add(nowMovieButton);
 		
 		//영화 예매 버튼
-		JButton reserveButton = new JButton("\uC601\uD654 \uC608\uB9E4");
+		ic = new ImageIcon("Images/rserv.png");
+		originImg = ic.getImage();
+		changedImg = originImg.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+		ic = new ImageIcon(changedImg);		
+		
+		JButton reserveButton = new JButton("  \uC601\uD654 \uC608\uB9E4", ic);
+		reserveButton.setBackground(new Color(210,251,239));
 		reserveButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -67,12 +81,22 @@ public class MainFrame extends JFrame {
 		panel.add(reserveButton);
 		
 		//음식 구매 버튼
-		JButton foodButton = new JButton("\uC74C\uC2DD \uAD6C\uB9E4");
+		ic = new ImageIcon("Images/pop.png");
+		originImg = ic.getImage();
+		changedImg = originImg.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+		ic = new ImageIcon(changedImg);	
+		JButton foodButton = new JButton("  \uC74C\uC2DD \uAD6C\uB9E4", ic);
+		foodButton.setBackground(new Color(179,228,200));
 		panel.add(foodButton);
 		
 		
 		//내 정보 버튼
-		JButton myMenuButton = new JButton("\uB0B4 \uC815\uBCF4");
+		ic = new ImageIcon("Images/my.png");
+		originImg = ic.getImage();
+		changedImg = originImg.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+		ic = new ImageIcon(changedImg);	
+		JButton myMenuButton = new JButton("  \uB0B4 \uC815\uBCF4", ic);
+		myMenuButton.setBackground(new Color(199,253,207));
 		panel.add(myMenuButton);
 		
 		
