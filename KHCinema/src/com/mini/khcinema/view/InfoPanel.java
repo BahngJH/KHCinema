@@ -163,6 +163,8 @@ public class InfoPanel extends JPanel {
 		ArrayList<Review> reviews = new ReviewController().getComment(filename);
 		double avg;
 				
+		System.out.println(reviews);
+		
 		if (reviews.size() > 0) {
 			double sum = 0;
 			for (Review r : reviews) {
