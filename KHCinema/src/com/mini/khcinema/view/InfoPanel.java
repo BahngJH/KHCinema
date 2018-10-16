@@ -150,7 +150,7 @@ public class InfoPanel extends JPanel {
 		if (m.size() > 0) {
 			for (int i=0;i<m.size();i++) {
 				if (((MovieReserve) m.get(i)).getMoviTitle().equals(movie.getTitle())) {
-					count++;
+					count += ((MovieReserve) m.get(i)).getPersonNum();
 				}
 			}
 		}
