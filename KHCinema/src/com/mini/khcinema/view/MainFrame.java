@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class MainFrame extends JFrame {
 	MainFrame mainFrame = this;
@@ -27,7 +28,7 @@ public class MainFrame extends JFrame {
 
 	public MainFrame() {
 		
-		setSize(900, 600);
+		setSize(951, 600);
 		setResizable(false);
 		setTitle("KH Cinema");
 		
@@ -47,6 +48,7 @@ public class MainFrame extends JFrame {
 		ic = new ImageIcon(changedImg);
 		
 		JButton nowMovieButton = new JButton("  \uD604\uC7AC \uC0C1\uC601 \uC601\uD654", ic);
+		nowMovieButton.setHorizontalAlignment(SwingConstants.LEFT);
 		nowMovieButton.setBackground(new Color(179,228,227));
 		nowMovieButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -67,6 +69,7 @@ public class MainFrame extends JFrame {
 		ic = new ImageIcon(changedImg);		
 		
 		JButton reserveButton = new JButton("  \uC601\uD654 \uC608\uB9E4", ic);
+		reserveButton.setHorizontalAlignment(SwingConstants.LEFT);
 		reserveButton.setBackground(new Color(210,251,239));
 		reserveButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -86,6 +89,7 @@ public class MainFrame extends JFrame {
 		changedImg = originImg.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
 		ic = new ImageIcon(changedImg);	
 		JButton foodButton = new JButton("  \uC74C\uC2DD \uAD6C\uB9E4", ic);
+		foodButton.setHorizontalAlignment(SwingConstants.LEFT);
 		foodButton.setBackground(new Color(179,228,200));
 		panel.add(foodButton);
 		
@@ -96,6 +100,7 @@ public class MainFrame extends JFrame {
 		changedImg = originImg.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
 		ic = new ImageIcon(changedImg);	
 		JButton myMenuButton = new JButton("  \uB0B4 \uC815\uBCF4", ic);
+		myMenuButton.setHorizontalAlignment(SwingConstants.LEFT);
 		myMenuButton.setBackground(new Color(199,253,207));
 		panel.add(myMenuButton);
 		

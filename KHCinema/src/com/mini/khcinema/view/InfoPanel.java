@@ -174,7 +174,8 @@ public class InfoPanel extends JPanel {
 			avg = 0.0;
 		}
 		
-		JLabel scoreLabel = new JLabel(String.valueOf(avg));
+		
+		JLabel scoreLabel = new JLabel(String.format("%.1f", avg));
 		GridBagConstraints gbc_scoreLabel = new GridBagConstraints();
 		gbc_scoreLabel.gridx = 3;
 		gbc_scoreLabel.gridy = 3;
