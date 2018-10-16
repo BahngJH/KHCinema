@@ -5,34 +5,32 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.RenderingHints.Key;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-
-import com.mini.khcinema.model.Movie;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import javax.swing.JScrollBar;
+import java.util.ArrayList;
 
-public class Review extends JPanel {
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import com.mini.khcinema.controller.ReviewController;
+import com.mini.khcinema.model.Movie;
+import com.mini.khcinema.model.Review;
+
+public class ReviewPanel extends JPanel {
 	private JTextField commentField;
 	private ArrayList<String> comments = new ArrayList<>();
-
-	public Review(Movie movie) {
+	ReviewController rc = new ReviewController();
+	
+	
+	public ReviewPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel titlePanel = new JPanel();
@@ -48,9 +46,9 @@ public class Review extends JPanel {
 		JPanel commentPanel = new JPanel();
 		add(commentPanel, BorderLayout.SOUTH);
 		GridBagLayout gbl_commentPanel = new GridBagLayout();
-		gbl_commentPanel.columnWidths = new int[] { 384, 64, 0 };
+		gbl_commentPanel.columnWidths = new int[] { 364, 30, 64, 0 };
 		gbl_commentPanel.rowHeights = new int[] { 23, 0 };
-		gbl_commentPanel.columnWeights = new double[] { 1.0, 0.0, Double.MIN_VALUE };
+		gbl_commentPanel.columnWeights = new double[] { 1.0, 1.0, 0.0, Double.MIN_VALUE };
 		gbl_commentPanel.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		commentPanel.setLayout(gbl_commentPanel);
 
@@ -64,28 +62,18 @@ public class Review extends JPanel {
 		
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		panel.add(scrollPane);
+		
 		String filename = movie.getTitle() + "리뷰" + ".txt";
 		// 리뷰 파일 열어서 정보 가져오기
-		getComment(filename);
+		ArrayList<Review> reviews = rc.getComment(filename);
 		
 		// 리뷰 창에 추가
-		for (String s : comments) {
-			textArea.append(s+"\n");
+		for (Review r : reviews) {
+			textArea.append(r.getComment()+"\t[" + r.getScore() +"점]\n");
 		}
 
 		commentField = new JTextField();
-		commentField.addKeyListener(new KeyAdapter() {
-
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					inputComment(commentField.getText(), filename);
-					textArea.append(commentField.getText()+"\n");
-					commentField.setText("");
-				}
-			}
-
-		});
+		
 		GridBagConstraints gbc_commentField = new GridBagConstraints();
 		gbc_commentField.fill = GridBagConstraints.BOTH;
 		gbc_commentField.insets = new Insets(0, 0, 0, 5);
@@ -94,54 +82,50 @@ public class Review extends JPanel {
 		commentPanel.add(commentField, gbc_commentField);
 		commentField.setColumns(10);
 
+		
+		
+		JComboBox<String> comboBox = new JComboBox<String>();
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"}));
+		comboBox.setMaximumRowCount(11);
+		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.insets = new Insets(0, 0, 0, 5);
+		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox.gridx = 1;
+		gbc_comboBox.gridy = 0;
+		commentPanel.add(comboBox, gbc_comboBox);
+		GridBagConstraints gbc_inputButton = new GridBagConstraints();
+
+		commentField.addKeyListener(new KeyAdapter() {
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					String score = (String)comboBox.getSelectedItem();
+					rc.inputComment(commentField.getText(), filename, score);
+					textArea.append(commentField.getText()+"\t[" + score +"점]\n");
+					commentField.setText("");
+				}
+			}
+
+		});
+		
+		
 		JButton inputButton = new JButton("입력");
 		inputButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == inputButton) {
-					inputComment(commentField.getText(), filename);
-					textArea.append(commentField.getText()+"\n");
+					String score = (String)comboBox.getSelectedItem();
+					rc.inputComment(commentField.getText(), filename, score);
+					textArea.append(commentField.getText()+"\t[" + score +"점]\n");
 					commentField.setText("");
 				}
 			}
 		});
-		GridBagConstraints gbc_inputButton = new GridBagConstraints();
 
-		gbc_inputButton.gridx = 1;
+		gbc_inputButton.gridx = 2;
 		gbc_inputButton.gridy = 0;
 		commentPanel.add(inputButton, gbc_inputButton);
 		
-		
-
 	}
 
-	public void inputComment(String comment, String filename) {
-		if (!comment.equals("")) {
-			comments.add(comment);
-
-			try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
-				oos.writeObject(comments);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	public void getComment(String filename) {
-		File file = new File(filename);
-		if (!file.exists()) {
-			try {
-				file.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-			comments = (ArrayList<String>) ois.readObject();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
 }

@@ -3,23 +3,23 @@ package com.mini.khcinema.model;
 import java.io.Serializable;
 import java.util.Arrays;
 
-public class MoveReserve implements Serializable {
+public class MovieReserve implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 9181521247200821668L;
 	
-	private String moviTitle;	//¿µÈ­Á¦¸ñ
-	private String date;		//¿µÈ­ ³¯Â¥
-	private String moviTime;		//¿µÈ­ ½ÃÀÛ ½Ã°£
-	private String[] set;		//ÁÂ¼®
-	private int personNum;		//ÀÎ¿ø
-	private String myID;		//±¸¸ÅÇÑ ¾ÆÀÌµð
+	private String moviTitle;	//ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½
+	private String date;		//ï¿½ï¿½È­ ï¿½ï¿½Â¥
+	private String moviTime;		//ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	private String[] set;		//ï¿½Â¼ï¿½
+	private int personNum;		//ï¿½Î¿ï¿½
+	private String myID;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 	
-	public MoveReserve() {}
+	public MovieReserve() {}
 	
-	public MoveReserve(String moviTitle, String date, String moviTime, String[] set, int personNum, String myID) {
+	public MovieReserve(String moviTitle, String date, String moviTime, String[] set, int personNum, String myID) {
 		this.moviTitle = moviTitle;
 		this.date = date;
 		this.moviTime = moviTime;

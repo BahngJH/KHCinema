@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 import com.mini.khcinema.controller.MovieController;
 import com.mini.khcinema.model.Movie;
 
-public class MovieInfo extends JPanel {
+public class MovieInfoPanel extends JPanel {
 	JPanel infoPanel;
-	public MovieInfo(Movie movie) {
+	public MovieInfoPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
 				
 		JPanel btnPanel = new JPanel();
@@ -26,7 +26,7 @@ public class MovieInfo extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				infoPanel.removeAll();
-				infoPanel.add(new Info(movie));
+				infoPanel.add(new InfoPanel(movie));
 				revalidate();
 				repaint();
 			}
@@ -40,14 +40,14 @@ public class MovieInfo extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				infoPanel.removeAll();
-				infoPanel.add(new Review(movie));
+				infoPanel.add(new ReviewPanel(movie));
 				revalidate();
 				repaint();
 			}			
 		});
 		btnPanel.add(btnReview);
 				
-		infoPanel = new Info(movie);
+		infoPanel = new InfoPanel(movie);
 		add(infoPanel, BorderLayout.CENTER);
 	}
 }

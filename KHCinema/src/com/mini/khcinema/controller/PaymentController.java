@@ -9,17 +9,27 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import com.mini.khcinema.model.MoveReserve;
+import com.mini.khcinema.model.MovieReserve;
 
 public class PaymentController {
 
 	String filename = "reserve.txt";
+<<<<<<< HEAD
+	// ���������� �����ͼ� ArrayList�� ������ �� ��ȯ�ϴ� �޼ҵ�
+=======
 	//예약정보를 가져와서 ArrayList에 저장한 후 반환하는 메소드
+>>>>>>> branch 'master' of https://github.com/sinna94/KHCinema
 
+<<<<<<< HEAD
+	public ArrayList<MovieReserve> getMoveReserve() {
+
+		ArrayList<MovieReserve> MoveReserve = null;
+=======
 	public ArrayList<MoveReserve> getMoveReserve() {
 		//현재 .txt 파일로 저장된 내용(데이터)을 받을 콜렉션 변수를 만든다.
 		//MoveReserve 자료형만 담기도록 하는 처리.
 		ArrayList<MoveReserve> MoveReserve = null;
+>>>>>>> branch 'master' of https://github.com/sinna94/KHCinema
 
 		File moveReserveFile = new File(filename);
 
@@ -47,11 +57,19 @@ public class PaymentController {
 		return MoveReserve;
 	}
 
+<<<<<<< HEAD
+	public void saveMoveReserve(ArrayList<MovieReserve> MoveReserve) {
+=======
 	//데이터를 텍스트 파일로 저장하는 메소드.
 	public void saveMoveReserve(ArrayList<MoveReserve> MoveReserve) {
+>>>>>>> branch 'master' of https://github.com/sinna94/KHCinema
 		File moveReserveFile = new File(filename);
 
+<<<<<<< HEAD
+		System.out.println("����");
+=======
 		System.out.println("텍스트 파일로 저장");
+>>>>>>> branch 'master' of https://github.com/sinna94/KHCinema
 		if (!moveReserveFile.exists()) {
 			try {
 				moveReserveFile.createNewFile();
