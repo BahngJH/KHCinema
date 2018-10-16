@@ -19,7 +19,7 @@ public class PaymentController {
 	public ArrayList<MovieReserve> getMoveReserve() {
 		//현재 .txt 파일로 저장된 내용(데이터)을 받을 콜렉션 변수를 만든다.
 		//MoveReserve 자료형만 담기도록 하는 처리.
-		ArrayList<MovieReserve> MoveReserve = null;
+		ArrayList<MovieReserve> moveReserve = new ArrayList<>();
 
 		File moveReserveFile = new File(filename);
 
@@ -33,7 +33,7 @@ public class PaymentController {
 
 		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(moveReserveFile))) {
 			try {
-				MoveReserve = (ArrayList) ois.readObject();
+				moveReserve = (ArrayList<MovieReserve>) ois.readObject();
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -44,7 +44,7 @@ public class PaymentController {
 			e.printStackTrace();
 		}
 
-		return MoveReserve;
+		return moveReserve;
 	}
 
 	//데이터를 텍스트 파일로 저장하는 메소드.

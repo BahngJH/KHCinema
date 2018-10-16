@@ -1,6 +1,7 @@
 package com.mini.khcinema.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -16,8 +17,8 @@ public class MovieInfoPanel extends JPanel {
 	JPanel infoPanel;
 	public MovieInfoPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
-				
 		JPanel btnPanel = new JPanel();
+		btnPanel.setBackground(new Color(179,228,227));
 		add(btnPanel, BorderLayout.NORTH);
 				
 		//영화 정보 버튼

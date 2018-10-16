@@ -1,5 +1,6 @@
 package com.mini.khcinema.view;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
@@ -16,6 +17,7 @@ import com.mini.khcinema.model.Movie;
 public class NowMoviePanel extends JPanel {
 
 	public NowMoviePanel(JPanel startPanel) {
+		
 		ArrayList<Movie> movies = new MovieController().getMovies();
 		int size = movies.size();
 		for (int i = 0; i < 6; i++) {
@@ -41,6 +43,7 @@ public class NowMoviePanel extends JPanel {
 			}
 			else {
 				JButton image = new JButton("상영 중인 영화 없음");
+				image.setBackground(new Color(179,228,227));
 				image.setEnabled(false);
 				add(image);
 			}

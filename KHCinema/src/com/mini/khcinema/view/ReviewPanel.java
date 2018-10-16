@@ -1,6 +1,7 @@
 package com.mini.khcinema.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -32,7 +33,8 @@ public class ReviewPanel extends JPanel {
 	
 	public ReviewPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
-
+		setBackground(new Color(179,228,227));
+		
 		JPanel titlePanel = new JPanel();
 		add(titlePanel, BorderLayout.NORTH);
 		titlePanel.setLayout(new BorderLayout(0, 0));
