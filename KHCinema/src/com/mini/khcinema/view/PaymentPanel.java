@@ -31,7 +31,7 @@ public class PaymentPanel extends JPanel {
 		this.pm = this;
 		JLabel info = new JLabel("Reservation info");
 		info.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		info.setBounds(412, 250, 268, 17);
+		info.setBounds(371, 261, 268, 17);
 
 		ArrayList seatList = new ArrayList();
 		for (int i = 0; i < personNum; i++) {
@@ -43,13 +43,13 @@ public class PaymentPanel extends JPanel {
 		JLabel payinfo = new JLabel("payinfo");
 		payinfo.setFont(new Font("맑은 고딕", Font.BOLD, 12));
 		payinfo.setText(personNum + "명 좌석 " + seatList + "");
-		payinfo.setBounds(412, 304, 253, 15);
+		payinfo.setBounds(371, 313, 253, 15);
 		add(payinfo);
 
 		JLabel seatinfo = new JLabel("payinfo");
 		seatinfo.setFont(new Font("맑은 고딕", Font.BOLD, 12));
 		seatinfo.setText("구매자: " + myID + " 가격: " + price);
-		seatinfo.setBounds(412, 279, 253, 15);
+		seatinfo.setBounds(371, 288, 253, 15);
 		add(seatinfo);
 
 		JLabel lblTitle = new JLabel("예매 정보 확인");
@@ -76,14 +76,14 @@ public class PaymentPanel extends JPanel {
 
 		ImageIcon ic2 = new ImageIcon("Images/ticket.png");
 		Image originImg2 = ic2.getImage();
-		Image chagedImg2 = originImg2.getScaledInstance(350, 200, Image.SCALE_SMOOTH);
+		Image chagedImg2 = originImg2.getScaledInstance(380, 230, Image.SCALE_SMOOTH);
 		ic2 = new ImageIcon(chagedImg2);
 		JLabel model_ticket = new JLabel(ic2);
-		model_ticket.setBounds(352, 198, 439, 165);
+		model_ticket.setBounds(316, 201, 439, 185);
 		add(model_ticket);
 		
 		JLabel lblNewLabel_1 = new JLabel("즐거운 관람되세요 감사합니다.");
-		lblNewLabel_1.setBounds(412, 399, 285, 27);
+		lblNewLabel_1.setBounds(388, 396, 285, 27);
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		add(lblNewLabel_1);
 
