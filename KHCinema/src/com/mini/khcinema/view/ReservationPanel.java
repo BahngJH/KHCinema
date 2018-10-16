@@ -54,7 +54,7 @@ public class ReservationPanel extends JPanel {
 				if (seatgrid.select != count) {
 					JOptionPane.showMessageDialog(null, "좌석을 선택하신 만큼 선택해주세요!");
 				} else {
-					for (int i = 0; i < 7; i++) {
+					for (int i = 0; i < 5; i++) {
 						for (int j = 0; j < 8; j++) {
 							if (seatgrid.seatflag[i][j] == true) {
 								seat[w] = ((char) (65 + i)) + "" + (j + 1);
