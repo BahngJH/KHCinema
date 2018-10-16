@@ -18,9 +18,9 @@ import javax.swing.ListSelectionModel;
 import com.mini.khcinema.controller.MovieController;
 import com.mini.khcinema.model.Movie;
 
-public class Admin extends JFrame {
-	Admin admin = this;
-	public Admin() {
+public class AdminFrame extends JFrame {
+	AdminFrame admin = this;
+	public AdminFrame() {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setBackground(new Color(255, 255, 255));

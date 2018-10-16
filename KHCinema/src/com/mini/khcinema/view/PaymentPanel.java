@@ -13,16 +13,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.mini.khcinema.controller.PaymentController;
-import com.mini.khcinema.model.MoveReserve;
+import com.mini.khcinema.model.MovieReserve;
 import java.awt.Color;
 import java.awt.SystemColor;
 
-public class Payment extends JPanel {
+public class PaymentPanel extends JPanel {
 
 	static int count = 0;
-	private Payment pm;
+	private PaymentPanel pm;
 
-	public Payment(String movititle, String date, String movitime, String[] seat, /*int seatNum,*/ int personNum,
+	public PaymentPanel(String movititle, String date, String movitime, String[] seat, /*int seatNum,*/ int personNum,
 			String myID, JPanel mf) {
 		setBackground(Color.LIGHT_GRAY);
 		setForeground(new Color(0, 0, 0));
@@ -81,7 +81,7 @@ public class Payment extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				MoveReserve info = new MoveReserve(movititle, date, movitime, seat, personNum, myID);
+				MovieReserve info = new MovieReserve(movititle, date, movitime, seat, personNum, myID);
 				ArrayList list = new ArrayList();
 				mf.remove(pm);
 				// mf.add(new Reservation(mf));

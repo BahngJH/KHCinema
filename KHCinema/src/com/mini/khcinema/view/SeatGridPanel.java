@@ -11,14 +11,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.mini.khcinema.controller.PaymentController;
-import com.mini.khcinema.model.MoveReserve;
+import com.mini.khcinema.model.MovieReserve;
 
-public class SeatGrid extends JPanel {
+public class SeatGridPanel extends JPanel {
 
 	boolean seatflag[][] = new boolean[7][8];
 	int select = 0;
 
-	public SeatGrid(String title, String date, String movitime, int count) {
+	public SeatGridPanel(String title, String date, String movitime, int count) {
 		setSize(20, 20);
 
 		// Flow의 좌우, 위아래 간격을 조정하는 함수 제일 처음은 정렬을 나타냄
@@ -68,7 +68,7 @@ public class SeatGrid extends JPanel {
 		check = new PaymentController().getMoveReserve();
 		try {
 			for (int i = 0; i < check.size(); i++) {
-				MoveReserve m = (MoveReserve) check.get(i);
+				MovieReserve m = (MovieReserve) check.get(i);
 
 				if (m.getMoviTitle().equals(title) && m.getDate().equals(date) && m.getMoviTime().equals(movitime)) {
 					String[] checkseat = m.getSet();

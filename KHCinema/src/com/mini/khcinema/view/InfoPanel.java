@@ -1,25 +1,24 @@
 package com.mini.khcinema.view;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Image;
-import java.util.Arrays;
+import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
-
-import com.mini.khcinema.model.Movie;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JScrollPane;
-import javax.swing.JScrollBar;
 import javax.swing.border.BevelBorder;
 
-public class Info extends JPanel {
-	public Info(Movie movie) {
+import com.mini.khcinema.controller.ReviewController;
+import com.mini.khcinema.model.Movie;
+import com.mini.khcinema.model.Review;
+
+public class InfoPanel extends JPanel {
+	public InfoPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
 		
 		
@@ -159,7 +158,23 @@ public class Info extends JPanel {
 		gbc_score.gridy = 3;
 		infoPanel.add(score, gbc_score);
 		
-		JLabel scoreLabel = new JLabel(String.valueOf(movie.getScore()));
+		String filename = movie.getTitle() + "리뷰" + ".txt";
+		// 리뷰 파일 열어서 정보 가져오기
+		ArrayList<Review> reviews = new ReviewController().getComment(filename);
+		double avg;
+				
+		if (reviews.size() > 0) {
+			double sum = 0;
+			for (Review r : reviews) {
+				sum += r.getScore();
+			}
+
+			avg = sum / reviews.size();
+		} else {
+			avg = 0.0;
+		}
+		
+		JLabel scoreLabel = new JLabel(String.valueOf(avg));
 		GridBagConstraints gbc_scoreLabel = new GridBagConstraints();
 		gbc_scoreLabel.gridx = 3;
 		gbc_scoreLabel.gridy = 3;

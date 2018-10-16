@@ -12,13 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class Reservation extends JPanel {
+public class ReservationPanel extends JPanel {
 	// String seat[] = new String[10];
 	int w = 0;
-	private Reservation rj;
+	private ReservationPanel rj;
 	private JPanel mf; // 메인 프레임을 해야하는데 잘못 만들어서 이걸로 대체함 자료형은 좀 틀리고 변수명만 맞춤
 
-	public Reservation(JPanel mf, String title, String date, String movitime, int teenCount, int adultCount) {
+	public ReservationPanel(JPanel mf, String title, String date, String movitime, int teenCount, int adultCount) {
 
 		int count = teenCount + adultCount;
 
@@ -38,7 +38,7 @@ public class Reservation extends JPanel {
 		exit.setFont(new Font("고딕", Font.ITALIC, 30));
 
 		// 좌석의 패널을 불러오는 것
-		SeatGrid seatgrid = new SeatGrid(title, date, movitime, count);
+		SeatGridPanel seatgrid = new SeatGridPanel(title, date, movitime, count);
 		add(seatgrid, BorderLayout.CENTER);
 
 		add(screen, BorderLayout.NORTH);
@@ -67,7 +67,7 @@ public class Reservation extends JPanel {
 					for (int i = 0; i < w; i++)
 						System.out.println(seat[i]);
 					mf.remove(rj);
-					mf.add(new Payment(title, date, movitime, seat, count, "wpxm2003", mf));
+					mf.add(new PaymentPanel(title, date, movitime, seat, count, "wpxm2003", mf));
 					mf.revalidate();
 					mf.repaint();
 				}

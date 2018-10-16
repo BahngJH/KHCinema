@@ -14,7 +14,6 @@ public class Movie implements Serializable{
 	private String[] actors;
 	private String runTime;
 	private String premier;
-	private double score = 0.0;
 	private int cnt = 0;
 	private String imagePath;
 	
@@ -23,7 +22,7 @@ public class Movie implements Serializable{
 	}
 	
 	public Movie(String title, String summary, String director, String[] actors, String runTime, String premier,
-			double score, int cnt) {
+			int cnt) {
 		super();
 		this.title = title;
 		this.summary = summary;
@@ -31,7 +30,6 @@ public class Movie implements Serializable{
 		this.actors = actors;
 		this.runTime = runTime;
 		this.premier = premier;
-		this.score = score;
 		this.cnt = cnt;
 	}
 
@@ -83,14 +81,6 @@ public class Movie implements Serializable{
 		this.premier = premier;
 	}
 
-	public double getScore() {
-		return score;
-	}
-
-	public void setScore(double score) {
-		this.score = score;
-	}
-
 	public int getCnt() {
 		return cnt;
 	}
@@ -105,13 +95,6 @@ public class Movie implements Serializable{
 
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
-	}
-
-	@Override
-	public String toString() {
-		return "Movie [title=" + title + ", summary=" + summary + ", director=" + director + ", actors="
-				+ Arrays.toString(actors) + ", runTime=" + runTime + ", premier=" + premier + ", score=" + score
-				+ ",  cnt=" + cnt + ", imagePath=" + imagePath + "]";
 	}
 
 }

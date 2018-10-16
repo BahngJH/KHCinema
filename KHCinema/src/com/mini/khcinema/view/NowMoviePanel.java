@@ -32,7 +32,7 @@ public class NowMoviePanel extends JPanel {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						startPanel.removeAll();
-						startPanel.add(new MovieInfo(movie));
+						startPanel.add(new MovieInfoPanel(movie));
 						startPanel.revalidate();
 						startPanel.repaint();
 					}

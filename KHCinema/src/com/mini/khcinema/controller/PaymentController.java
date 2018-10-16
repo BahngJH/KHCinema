@@ -9,16 +9,16 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import com.mini.khcinema.model.MoveReserve;
+import com.mini.khcinema.model.MovieReserve;
 
 public class PaymentController {
 
 	String filename = "reserve.txt";
-	// ¿¹¾àÁ¤º¸¸¦ °¡Á®¿Í¼­ ArrayList¿¡ ÀúÀåÇÑ ÈÄ ¹ÝÈ¯ÇÏ´Â ¸Þ¼Òµå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ ArrayListï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½
 
-	public ArrayList<MoveReserve> getMoveReserve() {
+	public ArrayList<MovieReserve> getMoveReserve() {
 
-		ArrayList<MoveReserve> MoveReserve = null;
+		ArrayList<MovieReserve> MoveReserve = null;
 
 		File moveReserveFile = new File(filename);
 
@@ -50,10 +50,10 @@ public class PaymentController {
 		return MoveReserve;
 	}
 
-	public void saveMoveReserve(ArrayList<MoveReserve> MoveReserve) {
+	public void saveMoveReserve(ArrayList<MovieReserve> MoveReserve) {
 		File moveReserveFile = new File(filename);
 
-		System.out.println("ÀúÀå");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½");
 		if (!moveReserveFile.exists()) {
 			try {
 				moveReserveFile.createNewFile();

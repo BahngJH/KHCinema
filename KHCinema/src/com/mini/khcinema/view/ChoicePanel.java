@@ -552,7 +552,7 @@ public class ChoicePanel extends JPanel {
                   System.out.println( movieList.getSelectedValue() + "" + dateList.getSelectedValue() + " "+  timeList. getSelectedValue() + " " + teenCount + " " + adultCount);
                   startPanel.removeAll();
                   
-                  startPanel.add(new Reservation(startPanel,(String)movieList.getSelectedValue(), (String)dateList.getSelectedValue(), (String)timeList.getSelectedValue(), teenCount, adultCount ));
+                  startPanel.add(new ReservationPanel(startPanel,(String)movieList.getSelectedValue(), (String)dateList.getSelectedValue(), (String)timeList.getSelectedValue(), teenCount, adultCount ));
                   
                   startPanel.revalidate();
                   startPanel.repaint();
