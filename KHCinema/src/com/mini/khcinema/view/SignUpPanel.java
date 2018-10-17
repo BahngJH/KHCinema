@@ -131,7 +131,7 @@ public class SignUpPanel extends JPanel {
 		add(nameTxt);
 
 		mailTxt = new JTextField(10);// 메일 입력필드
-		mailTxt.setBounds(135, 210, 115, 20);
+		mailTxt.setBounds(135, 240, 115, 20);
 		add(mailTxt);
 
 		addTxt = new JTextField(10);// 주소 입력 필드
@@ -139,7 +139,7 @@ public class SignUpPanel extends JPanel {
 		add(addTxt);
 
 		phoneTxt1 = new JTextField(13);
-		phoneTxt1.setBounds(135, 240, 115, 20);
+		phoneTxt1.setBounds(135, 211, 115, 20);
 		add(phoneTxt1);
 
 		// 년도 콤보박스
