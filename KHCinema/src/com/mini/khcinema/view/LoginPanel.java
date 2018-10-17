@@ -57,12 +57,11 @@ public class LoginPanel extends JPanel {
 				boolean login = new MemberController().loginCheck(texId.getText(), texPass.getText());
 
 				if (login) {
-					JOptionPane.showMessageDialog(null, "        로그인 성공");
 					new MainFrame();
 					frame.dispose();
 
 				} else {
-					JOptionPane.showMessageDialog(null, "ID&Password가 올바르지 않습니다.");
+					JOptionPane.showMessageDialog(null, "ID & Password가 올바르지 않습니다.");
 
 				}
 
