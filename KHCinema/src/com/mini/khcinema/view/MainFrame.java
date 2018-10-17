@@ -29,8 +29,9 @@ public class MainFrame extends JFrame {
 	}
 
 	public MainFrame() {
-		
 		setSize(951, 600);
+		setLocationRelativeTo(null);
+		
 		setResizable(false);
 		setTitle("KH Cinema");
 		
