@@ -22,7 +22,7 @@ public class StartPanel extends JPanel {
 		panel.setLayout(null);
 		
 		JLabel lblKh = new JLabel("\uC548\uB155\uD558\uC138\uC694 KH\uC2DC\uB124\uB9C8\uC785\uB2C8\uB2E4.");
-		lblKh.setBounds(273, 54, 156, 15);
+		lblKh.setBounds(273, 54, 199, 15);
 		panel.add(lblKh);
 		
 		JLabel TimeLabel = new JLabel("timelabel");
@@ -31,7 +31,7 @@ public class StartPanel extends JPanel {
 		TimeLabel.setBounds(257, 258, 313, 43);
 		panel.add(TimeLabel);
 		
-		//TimeLabel.setFont(new Font("맑은 고딕",Font.BOLD,30));
+		
 		NowTimeController nowtime = new NowTimeController(TimeLabel);
 		nowtime.start();
 		
