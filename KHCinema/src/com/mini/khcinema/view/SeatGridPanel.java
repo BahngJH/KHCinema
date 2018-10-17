@@ -19,7 +19,7 @@ public class SeatGridPanel extends JPanel {
 	int select = 0;	//좌석이 선택될 때 마다 증가시킴
 
 	public SeatGridPanel(String title, String date, String movitime, int count) {
-		setSize(20, 20);
+		setSize(783, 372);
 
 		// Flow의 좌우, 위아래 간격을 조정하는 함수 제일 처음은 정렬을 나타냄
 		setLayout(new FlowLayout(0, 40, 40));
