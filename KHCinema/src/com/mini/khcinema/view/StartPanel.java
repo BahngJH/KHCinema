@@ -1,29 +1,69 @@
 package com.mini.khcinema.view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.awt.Font;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import com.mini.khcinema.controller.NowTimeController;
-import java.awt.Font;
-import javax.swing.SwingConstants;
 
 public class StartPanel extends JPanel {
 	public StartPanel() {
 		setLayout(new BorderLayout(0, 0));
 				
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(199, 240, 253));
-		add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
-		
-		JLabel lblKh = new JLabel("\uC548\uB155\uD558\uC138\uC694 KH\uC2DC\uB124\uB9C8\uC785\uB2C8\uB2E4.");
-		lblKh.setBounds(273, 54, 199, 15);
-		panel.add(lblKh);
+		//panel.setBackground(new Color(204, 0, 51));
+				panel.setLayout(null);
+				panel.setBounds(100, 100, 2000, 2000);
+				add(panel);
+				
+						
+				ImageIcon icon1 = new ImageIcon("Images/mainlogo.png");
+				Image ic1=icon1.getImage();
+				Image changedlmg=ic1.getScaledInstance(700, 200, Image.SCALE_SMOOTH);
+				ImageIcon icon2=new ImageIcon(changedlmg);
+				JLabel jl = new JLabel(icon2);
+				jl.setSize(700, 200);
+				jl.setLocation(39, -10);
+				panel.add(jl);
+				
+				String imgPath = "Images/mainlogo";
+				ImageIcon originIcon = new ImageIcon(imgPath);
+				
+				
+				
+				
+				
+			/*	ImageIcon icon3 = new ImageIcon("Images/4444.png");
+				Image ic2=icon3.getImage();
+				Image changedlmg1=ic2.getScaledInstance(800, 300, Image.SCALE_SMOOTH);
+				ImageIcon icon4=new ImageIcon(changedlmg1);
+				JLabel jl1 = new JLabel(icon4);
+				jl1.setSize(800, 300);
+				jl1.setLocation(-14, -20);
+				panel.add(jl1);*/
+				
+				ImageIcon icon5 = new ImageIcon("Images/cgv.png");
+				Image ic3=icon5.getImage();
+				Image changedlmg2=ic3.getScaledInstance(1200, 500, Image.SCALE_SMOOTH);
+				ImageIcon icon6=new ImageIcon(changedlmg2);
+				JLabel jl2 = new JLabel(icon6);
+				jl2.setSize(1200, 600);
+				jl2.setLocation(-180, -200);
+				panel.add(jl2);
+				
+				ImageIcon icon7 = new ImageIcon("Images/jj.png");
+				Image ic4=icon7.getImage();
+				Image changedlmg3=ic4.getScaledInstance(1000, 520, Image.SCALE_SMOOTH);
+				ImageIcon icon8=new ImageIcon(changedlmg3);
+				JLabel jl4 = new JLabel(icon8);
+				jl4.setSize(1000, 520);
+				jl4.setLocation(-100, 140);
+				panel.add(jl4);
 		
 		JLabel TimeLabel = new JLabel();
 		TimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
