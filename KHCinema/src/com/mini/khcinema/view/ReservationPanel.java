@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.mini.khcinema.controller.MemberController;
+
 public class ReservationPanel extends JPanel {
 	int w = 0;
 	private ReservationPanel rj;
@@ -66,7 +68,7 @@ public class ReservationPanel extends JPanel {
 					for (int i = 0; i < w; i++)
 						System.out.println(seat[i]);
 					mf.remove(rj);
-					mf.add(new PaymentPanel(title, date, movitime, seat, count, "wpxm2003", mf,price));
+					mf.add(new PaymentPanel(title, date, movitime, seat, count, MemberController.loginID, mf,price));
 					mf.revalidate();
 					mf.repaint();
 				}

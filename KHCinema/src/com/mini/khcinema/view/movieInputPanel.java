@@ -153,8 +153,11 @@ public class movieInputPanel extends JPanel {
 					new MovieController().inputMovie(tfTitle.getText(),
 							tfActors.getText(), tfDirector.getText(),
 							tfpremier.getText(), tfRuntime.getText(), tfSummary.getText(), f);
-					
-					
+					JOptionPane.showMessageDialog(null, "추가 완료");
+					admin.getContentPane().removeAll();
+					admin.getContentPane().add(new AdminMainPanel(admin));
+					admin.revalidate();
+					admin.repaint();
 				}
 
 			}

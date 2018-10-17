@@ -1,18 +1,15 @@
 package com.mini.khcinema.run;
 
-import com.mini.khcinema.view.AdminFrame;
+import com.mini.khcinema.view.CinemaMainFrame;
 import com.mini.khcinema.view.MainFrame;
 
 public class Run {
 
 	public static void main(String[] args) {
-		new MainFrame();
-//		new Admin();
-		/*MovieController mc = new MovieController();
-		mc.inputMovieTest();*/
-		/*ArrayList movies = mc.getMovies();
-		System.out.println(movies.get(0));
-		System.out.println(movies.get(1));*/
+	//	new MainFrame();
+	//	new AdminFrame();
+		new CinemaMainFrame("KH시네마");
+		
 	}
 
 }
