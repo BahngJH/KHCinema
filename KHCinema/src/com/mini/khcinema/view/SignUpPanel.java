@@ -131,7 +131,7 @@ public class SignUpPanel extends JPanel {
 		add(nameTxt);
 
 		mailTxt = new JTextField(10);// 메일 입력필드
-		mailTxt.setBounds(135, 210, 115, 20);
+		mailTxt.setBounds(135, 240, 115, 20);
 		add(mailTxt);
 
 		addTxt = new JTextField(10);// 주소 입력 필드
@@ -139,7 +139,7 @@ public class SignUpPanel extends JPanel {
 		add(addTxt);
 
 		phoneTxt1 = new JTextField(13);
-		phoneTxt1.setBounds(135, 240, 115, 20);
+		phoneTxt1.setBounds(135, 211, 115, 20);
 		add(phoneTxt1);
 
 		// 년도 콤보박스
@@ -219,18 +219,13 @@ public class SignUpPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (idTxt.getText().equals("") || !idck) {
 					JOptionPane.showMessageDialog(null, "ID 다시 입력하세요");
-
 				} else if (passwordTxt.getText().equals("") || !passwordTxt.getText().equals(pwcTxt.getText())) {
 					JOptionPane.showMessageDialog(null, "Password 다시 입력하세요");
 				} else if (nameTxt.getText().equals("")) {
-
 					JOptionPane.showMessageDialog(null, "이름 다시 입력하세요..");
-
 				} else if (phoneTxt1.getText().equals("")) {
-
 					JOptionPane.showMessageDialog(null, "전화번호 다시 입력하세요.");
 				} else if (addTxt.getText().equals("")) {
-
 					JOptionPane.showMessageDialog(null, "주소 다시 입력하세요.");
 				} else if (mailTxt.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "메일 다시 입력하세요");
