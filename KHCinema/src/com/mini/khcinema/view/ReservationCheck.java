@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class ReservationCheck extends JPanel {
 
@@ -51,14 +52,17 @@ public class ReservationCheck extends JPanel {
 		MovieReserve mv = new MovieReserve();
 		ArrayList<MovieReserve> tmp = new PaymentController().getMoveReserve();
 		ArrayList<MovieReserve> reservationInfo = new ArrayList<>();
-
+		
+		int count = 0;
 		for (int i = 0; i < tmp.size(); i++) {
-			int count = 0;
 			if (MemberController.loginID.equals(tmp.get(i).getMyID())) {
+				System.out.println(count);
 				reservationInfo.add(tmp.get(count++));
 			}
 		}
 
+		System.out.println(reservationInfo);
+		
 		if(reservationInfo.size()==0) {
 			JOptionPane.showMessageDialog(null, "예매 정보가 없습니다.");
 			startPanel.removeAll();
@@ -66,6 +70,7 @@ public class ReservationCheck extends JPanel {
 			startPanel.revalidate();
 			startPanel.repaint();
 		}
+		
 		maxcnt = reservationInfo.size();
 
 		// 예매내역 출력 라벨
@@ -183,7 +188,6 @@ public class ReservationCheck extends JPanel {
 		beforeBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (cnt == 0) {
 					JOptionPane.showMessageDialog(null, "처음입니다.");
 				} else {
@@ -219,6 +223,12 @@ public class ReservationCheck extends JPanel {
 		JButton DeleteBtn = new JButton("예매 취소");
 		DeleteBtn.setBounds(668, 534, 97, 23);
 		add(DeleteBtn);
+		
+		JLabel label = new JLabel("예매 정보 확인");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("굴림", Font.PLAIN, 28));
+		label.setBounds(217, 50, 389, 72);
+		add(label);
 
 		DeleteBtn.addMouseListener(new MouseAdapter() {
 			@Override
@@ -238,5 +248,4 @@ public class ReservationCheck extends JPanel {
 		});
 
 	}
-
 }
