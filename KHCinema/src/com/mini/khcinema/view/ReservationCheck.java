@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import com.mini.khcinema.controller.MemberController;
 import com.mini.khcinema.controller.PaymentController;
 import com.mini.khcinema.model.MovieReserve;
 import com.mini.khcinema.model.MovieReserve;
@@ -26,6 +27,7 @@ public class ReservationCheck extends JPanel {
 
 	String s1 = "";
 	ReservationCheck reservationcheck = this;
+
 	public ReservationCheck(JPanel startPanel) {
 		setBackground(new Color(255, 255, 255));
 		setSize(900, 600);
@@ -43,14 +45,31 @@ public class ReservationCheck extends JPanel {
 		img.setBounds(40, 50, 700, 500);
 		this.add(img);
 
-		// 텍스트에 저장된 영화 예매 내역 ArrayList로 만듬 .
+		// 텍스트에 저장된 영화 예매 내역 tmp로 받아서
+		// 로그인한 아이디의 예매 내역만 reservationinfo 에 넣음
+
 		MovieReserve mv = new MovieReserve();
-		ArrayList<MovieReserve> reservationInfo = new PaymentController().getMoveReserve();
-		System.out.println(reservationInfo.get(0));
+		ArrayList<MovieReserve> tmp = new PaymentController().getMoveReserve();
+		ArrayList<MovieReserve> reservationInfo = new ArrayList<>();
+
+		for (int i = 0; i < tmp.size(); i++) {
+			int count = 0;
+			if (MemberController.loginID.equals(tmp.get(i).getMyID())) {
+				reservationInfo.add(tmp.get(count++));
+			}
+		}
+
+		if(reservationInfo.size()==0) {
+			JOptionPane.showMessageDialog(null, "예매 정보가 없습니다.");
+			startPanel.removeAll();
+			startPanel.add(new One(startPanel));
+			startPanel.revalidate();
+			startPanel.repaint();
+		}
 		maxcnt = reservationInfo.size();
 
-		//예매내역 출력 라벨 
-		
+		// 예매내역 출력 라벨
+
 		String s1 = reservationInfo.get(0).getMoviTitle();
 		JLabel reMovieTitle = new JLabel();
 		reMovieTitle.setFont(new Font("맑은 고딕", Font.BOLD, 13));
@@ -88,7 +107,7 @@ public class ReservationCheck extends JPanel {
 			add(ReMovieSeat);
 		}
 
-		int i1 =  reservationInfo.get(0).getPersonNum();
+		int i1 = reservationInfo.get(0).getPersonNum();
 		String s4 = Integer.toString(i1);
 		JLabel reMoviePerson = new JLabel();
 		reMoviePerson.setFont(new Font("맑은 고딕", Font.BOLD, 13));
@@ -113,17 +132,17 @@ public class ReservationCheck extends JPanel {
 
 		JLabel l = new JLabel();
 		l.setBounds(90, 210, 180, 186);
-		
-		ImageIcon ic = new ImageIcon("Images/" + ((MovieReserve)reservationInfo.get(0)).getMoviTitle() + ".jpg");
+
+		ImageIcon ic = new ImageIcon("Images/" + ((MovieReserve) reservationInfo.get(0)).getMoviTitle() + ".jpg");
 		Image originImg1 = ic.getImage();
 		Image changedImg1 = originImg1.getScaledInstance(160, 186, Image.SCALE_SMOOTH);
 		ic = new ImageIcon(changedImg1);
 		l.setIcon(ic);
 		add(l);
-		
+
 		this.repaint();
 		// 다음 예매 내역을 보기위해 이벤트 처리!
-	
+
 		NextBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -143,24 +162,23 @@ public class ReservationCheck extends JPanel {
 					String s4 = Integer.toString(i1);
 					reMoviePerson.setText("관람 인원 " + s4 + " 명");
 					add(reMoviePerson);
-					
-					
+
 					System.out.println(reservationInfo.get(cnt));
-					ImageIcon ic = new ImageIcon("Images/" + ((MovieReserve)reservationInfo.get(cnt)).getMoviTitle() + ".jpg");
+					ImageIcon ic = new ImageIcon(
+							"Images/" + ((MovieReserve) reservationInfo.get(cnt)).getMoviTitle() + ".jpg");
 					Image originImg = ic.getImage();
 					Image changedImg = originImg.getScaledInstance(160, 186, Image.SCALE_SMOOTH);
 					ic = new ImageIcon(changedImg);
 					l.setIcon(ic);
 					add(l);
 					reservationcheck.repaint();
-					
-					
+
 				} else
 					JOptionPane.showMessageDialog(null, "더 이상 예매 내역이 없습니다.");
 
 			}
 		});
-		
+
 		// 이전 예매 내역을 보기위한 이벤트!
 		beforeBtn.addMouseListener(new MouseAdapter() {
 			@Override
@@ -183,8 +201,9 @@ public class ReservationCheck extends JPanel {
 					String s4 = Integer.toString(i1);
 					reMoviePerson.setText("관람 인원 " + s4 + " 명");
 					add(reMoviePerson);
-					
-					ImageIcon ic = new ImageIcon("Images/" + ((MovieReserve)reservationInfo.get(cnt)).getMoviTitle() + ".jpg");
+
+					ImageIcon ic = new ImageIcon(
+							"Images/" + ((MovieReserve) reservationInfo.get(cnt)).getMoviTitle() + ".jpg");
 					Image originImg = ic.getImage();
 					Image changedImg = originImg.getScaledInstance(160, 186, Image.SCALE_SMOOTH);
 					ic = new ImageIcon(changedImg);
@@ -196,7 +215,6 @@ public class ReservationCheck extends JPanel {
 			}
 		});
 
-		
 		// 예매 취소 내역 이벤트!
 		JButton DeleteBtn = new JButton("예매 취소");
 		DeleteBtn.setBounds(668, 534, 97, 23);
@@ -212,10 +230,10 @@ public class ReservationCheck extends JPanel {
 				JOptionPane.showMessageDialog(null, "예매내역이 취소되었습니다.");
 				// 예매가 취소 돼서 text 파일안에 내용 지워짐.
 				new PaymentController().saveMoveReserve(reservationInfo);
-				 startPanel.removeAll();
+				startPanel.removeAll();
 				startPanel.add(new One(startPanel));
 				startPanel.revalidate();
-				startPanel.repaint();	
+				startPanel.repaint();
 			}
 		});
 

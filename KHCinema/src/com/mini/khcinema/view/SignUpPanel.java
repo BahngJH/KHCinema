@@ -219,18 +219,13 @@ public class SignUpPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (idTxt.getText().equals("") || !idck) {
 					JOptionPane.showMessageDialog(null, "ID 다시 입력하세요");
-
 				} else if (passwordTxt.getText().equals("") || !passwordTxt.getText().equals(pwcTxt.getText())) {
 					JOptionPane.showMessageDialog(null, "Password 다시 입력하세요");
 				} else if (nameTxt.getText().equals("")) {
-
 					JOptionPane.showMessageDialog(null, "이름 다시 입력하세요..");
-
 				} else if (phoneTxt1.getText().equals("")) {
-
 					JOptionPane.showMessageDialog(null, "전화번호 다시 입력하세요.");
 				} else if (addTxt.getText().equals("")) {
-
 					JOptionPane.showMessageDialog(null, "주소 다시 입력하세요.");
 				} else if (mailTxt.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "메일 다시 입력하세요");
