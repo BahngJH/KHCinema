@@ -25,7 +25,7 @@ public class StartPanel extends JPanel {
 		lblKh.setBounds(273, 54, 156, 15);
 		panel.add(lblKh);
 		
-		JLabel TimeLabel = new JLabel("timelabel");
+		JLabel TimeLabel = new JLabel();
 		TimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		TimeLabel.setFont(new Font("Arial Black", Font.PLAIN, 25));
 		TimeLabel.setBounds(257, 258, 313, 43);

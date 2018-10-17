@@ -1,6 +1,5 @@
 package com.mini.khcinema.controller;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,6 +12,7 @@ import com.mini.khcinema.model.Member;
 
 public class MemberController {
 	String filename = "memberList.txt";
+	static String loginID;
 
 	// 회원 정보를 가져와서 ArrayList에 저장한 후 반환하는 메소드
 	public ArrayList<Member> GetMembers() {
@@ -81,13 +81,15 @@ public class MemberController {
 		memIdCheck = GetMembers();// 객체를 불러와서 리스트로 바꿔 memIdCheck에 넣는다.
 		// String checkId=new SignUpPanel().getText();
 
-		for (int i = 0; i < memIdCheck.size(); i++) {
+		if (memIdCheck != null) {
+			for (int i = 0; i < memIdCheck.size(); i++) {
 
-			Member m = (Member) memIdCheck.get(i);
-			if (m.getId().equals(idck)) {
-				return false;
+				Member m = (Member) memIdCheck.get(i);
+				if (m.getId().equals(idck)) {
+					return false;
+				}
+
 			}
-
 		}
 		return true;
 	}
@@ -99,6 +101,7 @@ public class MemberController {
 			Member m = (Member) login.get(i);
 
 			if (m.getId().equals(id) && m.getPassword().equals(password)) {
+				loginID = m.getId();// 현재 로그인 접속자
 				return true;
 
 			}
@@ -109,16 +112,3 @@ public class MemberController {
 	}
 
 }
-//		
-//		File f = new File(filename);
-//
-//		if (!f.exists() || f.length() == 0) {
-//		} else {
-//			mList = GetMembers();
-//		}
-//
-//		Member mid = new Member();
-//		mid.setId(idck);
-//		mList.add(mid);
-//
-//	}

@@ -29,7 +29,6 @@ public class NowTimeController extends Thread {
 				Thread.sleep(1000);
 				l.setText(NowTime);
 				
-				System.out.println("현재시각:"+NowTime);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
