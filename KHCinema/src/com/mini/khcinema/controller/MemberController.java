@@ -12,7 +12,7 @@ import com.mini.khcinema.model.Member;
 
 public class MemberController {
 	String filename = "memberList.txt";
-	static String loginID;
+	public static String loginID;
 
 	// 회원 정보를 가져와서 ArrayList에 저장한 후 반환하는 메소드
 	public ArrayList<Member> GetMembers() {
