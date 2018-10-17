@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -100,10 +102,20 @@ public class MainFrame extends JFrame {
 		changedImg = originImg.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
 		ic = new ImageIcon(changedImg);	
 		JButton myMenuButton = new JButton("  \uB0B4 \uC815\uBCF4", ic);
+		myMenuButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				startPanel.removeAll();
+				startPanel.add(new One(startPanel));
+				revalidate();
+				repaint();
+				
+			}
+		});
 		myMenuButton.setHorizontalAlignment(SwingConstants.LEFT);
 		myMenuButton.setBackground(new Color(199,253,207));
 		panel.add(myMenuButton);
-		
 		
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
