@@ -28,6 +28,10 @@ public class NowTimeController extends Thread {
 			try {
 				Thread.sleep(1000);
 				l.setText(NowTime);
+<<<<<<< HEAD
+=======
+				
+>>>>>>> branch 'master' of https://github.com/sinna94/KHCinema
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
