@@ -49,6 +49,7 @@ public class LoginPanel extends JPanel {
 		add(signUpbtn);
 		add(findbtn);
 
+		// 로그인 버튼 이벤트
 		logbtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -61,19 +62,34 @@ public class LoginPanel extends JPanel {
 					frame.dispose();
 
 				} else {
-					JOptionPane.showMessageDialog(null, "ID & Password가 올바르지 않습니다.");
+					JOptionPane.showMessageDialog(null, "ID&Password가 올바르지 않습니다.");
 
 				}
 
 			}
 		});
 
+		// 회원가입 버튼 이벤트
 		signUpbtn.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent e2) {// 회원가입 하기
+			public void actionPerformed(ActionEvent e2) {
 				frame.getContentPane().removeAll();
 				frame.getContentPane().add(new SignUpPanel(frame));
+				frame.getContentPane().revalidate();
+				frame.getContentPane().repaint();
+
+			}
+		});
+
+		// ID&Password 찾기 버튼 이벤트
+
+		findbtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e3) {
+				frame.getContentPane().removeAll();
+				frame.getContentPane().add(new FindPanel(frame));
 				frame.getContentPane().revalidate();
 				frame.getContentPane().repaint();
 

@@ -36,11 +36,6 @@ public class SignUpPanel extends JPanel {
 		frame.setSize(500, 450);
 		frame.setTitle("KH 시네마 회원가입");
 
-		JRadioButton female;
-		JRadioButton male;
-		ButtonGroup bg = new ButtonGroup();
-		setLayout(null);
-
 		JLabel cinemaLb = new JLabel("회원가입");
 		cinemaLb.setBackground(Color.BLACK);
 		cinemaLb.setBounds(40, 15, 72, 20);
@@ -99,6 +94,12 @@ public class SignUpPanel extends JPanel {
 		addLb.setBounds(40, 270, 40, 20);
 		addLb.setFont(new Font("굴림", Font.PLAIN, 13));
 		add(addLb);
+
+		// 남,녀 선택버튼
+		JRadioButton female;
+		JRadioButton male;
+		ButtonGroup bg = new ButtonGroup();
+		setLayout(null);
 
 		male = new JRadioButton("남");// 남자 선택 버튼
 		male.setBounds(324, 210, 40, 20);
@@ -181,11 +182,10 @@ public class SignUpPanel extends JPanel {
 				idck = new MemberController().memberCheck(idTxt.getText());
 
 				if (idck) {
-					// pan.add(idok);
+
 					JOptionPane.showMessageDialog(null, "사용하셔도 좋습니다.");
 				} else {
 					JOptionPane.showMessageDialog(null, "사용중인 아이디입니다.");
-					// pan.add(idno);
 
 				}
 
@@ -198,6 +198,7 @@ public class SignUpPanel extends JPanel {
 		JButton cancelBtn = new JButton("취소");
 		cancelBtn.setBounds(112, 345, 83, 23);
 		cancelBtn.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {// 취소버튼 이벤트
 				frame.getContentPane().removeAll();
 				frame.getContentPane().add(new LoginPanel(frame));
@@ -219,14 +220,21 @@ public class SignUpPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (idTxt.getText().equals("") || !idck) {
 					JOptionPane.showMessageDialog(null, "ID 다시 입력하세요");
+
 				} else if (passwordTxt.getText().equals("") || !passwordTxt.getText().equals(pwcTxt.getText())) {
 					JOptionPane.showMessageDialog(null, "Password 다시 입력하세요");
+
 				} else if (nameTxt.getText().equals("")) {
+
 					JOptionPane.showMessageDialog(null, "이름 다시 입력하세요..");
+
 				} else if (phoneTxt1.getText().equals("")) {
+
 					JOptionPane.showMessageDialog(null, "전화번호 다시 입력하세요.");
 				} else if (addTxt.getText().equals("")) {
+
 					JOptionPane.showMessageDialog(null, "주소 다시 입력하세요.");
+
 				} else if (mailTxt.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "메일 다시 입력하세요");
 				}
@@ -250,10 +258,6 @@ public class SignUpPanel extends JPanel {
 					new MemberController().InputMember(idTxt.getText(), passwordTxt.getText(), nameLb.getText(), birth,
 							mailTxt.getText(), phoneTxt1.getText(), gen, addTxt.getText());
 					JOptionPane.showMessageDialog(null, "회원가입을 축하드립니다.");
-					frame.getContentPane().removeAll();
-					frame.getContentPane().add(new LoginPanel(frame));
-					frame.getContentPane().revalidate();
-					frame.getContentPane().repaint();
 
 				}
 
