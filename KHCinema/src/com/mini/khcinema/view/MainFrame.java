@@ -52,7 +52,7 @@ public class MainFrame extends JFrame {
 		
 		JButton nowMovieButton = new JButton("  \uD604\uC7AC \uC0C1\uC601 \uC601\uD654", ic);
 		nowMovieButton.setHorizontalAlignment(SwingConstants.LEFT);
-		nowMovieButton.setBackground(new Color(179,228,227));
+		nowMovieButton.setBackground(new Color(245, 245, 220));
 		nowMovieButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -73,7 +73,7 @@ public class MainFrame extends JFrame {
 		
 		JButton reserveButton = new JButton("  \uC601\uD654 \uC608\uB9E4", ic);
 		reserveButton.setHorizontalAlignment(SwingConstants.LEFT);
-		reserveButton.setBackground(new Color(210,251,239));
+		reserveButton.setBackground(new Color(245, 245, 220));
 		reserveButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -93,7 +93,7 @@ public class MainFrame extends JFrame {
 		ic = new ImageIcon(changedImg);	
 		JButton foodButton = new JButton("  \uC74C\uC2DD \uAD6C\uB9E4", ic);
 		foodButton.setHorizontalAlignment(SwingConstants.LEFT);
-		foodButton.setBackground(new Color(179,228,200));
+		foodButton.setBackground(new Color(245, 245, 220));
 		panel.add(foodButton);
 		
 		
@@ -115,7 +115,7 @@ public class MainFrame extends JFrame {
 			}
 		});
 		myMenuButton.setHorizontalAlignment(SwingConstants.LEFT);
-		myMenuButton.setBackground(new Color(199,253,207));
+		myMenuButton.setBackground(new Color(245, 245, 220));
 		panel.add(myMenuButton);
 		
 		

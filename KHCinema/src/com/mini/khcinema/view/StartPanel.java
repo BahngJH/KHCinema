@@ -27,14 +27,7 @@ public class StartPanel extends JPanel {
 				Image changedlmg=ic1.getScaledInstance(700, 200, Image.SCALE_SMOOTH);
 				ImageIcon icon2=new ImageIcon(changedlmg);
 				
-				JLabel TimeLabel = new JLabel();
-				TimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-				TimeLabel.setFont(new Font("Arial Black", Font.PLAIN, 25));
-				TimeLabel.setBounds(257, 258, 313, 43);
-				panel.add(TimeLabel);
 				
-				
-				NowTimeController nowtime = new NowTimeController(TimeLabel);
 				JLabel jl = new JLabel(icon2);
 				jl.setSize(700, 200);
 				jl.setLocation(39, -10);

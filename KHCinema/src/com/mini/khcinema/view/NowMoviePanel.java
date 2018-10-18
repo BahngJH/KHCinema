@@ -29,7 +29,7 @@ public class NowMoviePanel extends JPanel {
 		for (int i = 0; i < 6; i++) {
 			if (size > i) {
 				JButton image = new JButton();
-				image.setBackground(new Color(179,228,227));
+				image.setBackground(new Color(245, 245, 220));
 				add(image);
 				
 				ImageThread inputT = new ImageThread(image, movies.get(i));
@@ -37,7 +37,7 @@ public class NowMoviePanel extends JPanel {
 			}
 			else {
 				JButton image = new JButton("상영 중인 영화 없음");
-				image.setBackground(new Color(179,228,227));
+				image.setBackground(new Color(245, 245, 220));
 				image.setEnabled(false);
 				add(image);
 			}

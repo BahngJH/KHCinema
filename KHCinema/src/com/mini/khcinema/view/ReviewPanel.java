@@ -33,9 +33,10 @@ public class ReviewPanel extends JPanel {
 	
 	public ReviewPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
-		setBackground(new Color(179,228,227));
+		setBackground(new Color(245, 245, 220));
 		
 		JPanel titlePanel = new JPanel();
+		titlePanel.setBackground(new Color(245, 245, 220));
 		add(titlePanel, BorderLayout.NORTH);
 		titlePanel.setLayout(new BorderLayout(0, 0));
 

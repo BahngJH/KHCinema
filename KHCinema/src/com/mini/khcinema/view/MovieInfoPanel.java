@@ -18,7 +18,7 @@ public class MovieInfoPanel extends JPanel {
 	public MovieInfoPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
 		JPanel btnPanel = new JPanel();
-		btnPanel.setBackground(new Color(179,228,227));
+		btnPanel.setBackground(new Color(245, 245, 220));
 		add(btnPanel, BorderLayout.NORTH);
 				
 		//영화 정보 버튼

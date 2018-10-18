@@ -24,7 +24,7 @@ public class InfoPanel extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel imagePanel = new JPanel();
-		imagePanel.setBackground(new Color(179, 228, 227));
+		imagePanel.setBackground(new Color(245, 245, 220));
 		add(imagePanel, BorderLayout.WEST);
 
 		ImageIcon ic = new ImageIcon(movie.getImagePath());
@@ -37,7 +37,7 @@ public class InfoPanel extends JPanel {
 		imagePanel.add(l);
 
 		JPanel infoPanel = new JPanel();
-		infoPanel.setBackground(new Color(179, 228, 227));
+		infoPanel.setBackground(new Color(245, 245, 220));
 		add(infoPanel, BorderLayout.CENTER);
 		GridBagLayout gbl_infoPanel = new GridBagLayout();
 		gbl_infoPanel.columnWidths = new int[] { 115, 115, 115, 115, 0 };
@@ -193,7 +193,7 @@ public class InfoPanel extends JPanel {
 		infoPanel.add(scoreLabel, gbc_scoreLabel);
 
 		JTextPane textPane = new JTextPane();
-		textPane.setBackground(new Color(204, 204, 204));
+		textPane.setBackground(new Color(245, 245, 220));
 		textPane.setText(movie.getSummary());
 		textPane.setEditable(false);
 		add(textPane, BorderLayout.SOUTH);
