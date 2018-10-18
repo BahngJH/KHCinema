@@ -255,10 +255,14 @@ public class SignUpPanel extends JPanel {
 					String birth = (String) ((comboyear.getSelectedItem()) + "년" + (combomonth.getSelectedItem()) + "월"
 							+ (combodate.getSelectedItem()) + "일");
 
-					new MemberController().InputMember(idTxt.getText(), passwordTxt.getText(), nameLb.getText(), birth,
+					new MemberController().InputMember(idTxt.getText(), passwordTxt.getText(), nameTxt.getText(), birth,
 							mailTxt.getText(), phoneTxt1.getText(), gen, addTxt.getText());
 					JOptionPane.showMessageDialog(null, "회원가입을 축하드립니다.");
 
+					frame.getContentPane().removeAll();
+					frame.getContentPane().add(new LoginPanel(frame));
+					frame.getContentPane().revalidate();
+					frame.getContentPane().repaint();
 				}
 
 			}

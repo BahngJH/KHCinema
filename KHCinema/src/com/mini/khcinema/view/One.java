@@ -1,19 +1,20 @@
 package com.mini.khcinema.view;
 
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
 import java.awt.Color;
-import javax.swing.SwingConstants;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import com.mini.khcinema.controller.MemberController;
+import com.mini.khcinema.model.Member;
 
 public class One extends JPanel {
 
@@ -33,8 +34,17 @@ public class One extends JPanel {
 		Image changedlmg = ic1.getScaledInstance(501, 105, Image.SCALE_SMOOTH);
 		ImageIcon icon5 = new ImageIcon(changedlmg);
 
-		JLabel lblNewLabel = new JLabel("이름");
-		lblNewLabel.setBounds(295, 57, 76, 29);
+		ArrayList<Member> members = new MemberController().GetMembers();
+		Member member=null;
+		for(int i=0;i<members.size();i++) {
+			if(members.get(i).getId().equals(MemberController.loginID)) {
+				member = members.get(i);
+			}
+		}
+		
+		System.out.println(member.getName());
+		JLabel lblNewLabel = new JLabel("이름: " + member.getName());
+		lblNewLabel.setBounds(260, 57, 137, 29);
 		add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("정보변경");
@@ -42,25 +52,9 @@ public class One extends JPanel {
 		btnNewButton.setBounds(165, 185, 137, 116);
 		add(btnNewButton);
 
-		JLabel label = new JLabel("아이디");
-		label.setBounds(378, 57, 76, 29);
+		JLabel label = new JLabel("아이디: " + member.getId());
+		label.setBounds(430, 57, 259, 29);
 		add(label);
-
-		JLabel label_1 = new JLabel("별명");
-		label_1.setBounds(461, 57, 76, 29);
-		add(label_1);
-
-		ImageIcon icon = new ImageIcon("poto/1.png");
-		Image ima = icon.getImage();
-		Image icon1 = ima.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-		icon = new ImageIcon(icon1);
-		JButton drinkplusBtn = new JButton(icon);
-		drinkplusBtn.setBackground(Color.WHITE);
-
-		drinkplusBtn.setBounds(505, 57, 24, 30);
-		add(drinkplusBtn);
-		drinkplusBtn.setVisible(true);
-		drinkplusBtn.setBorderPainted(false);
 
 		JButton button = new JButton("예매확인 / 취소");
 		button.setBackground(Color.WHITE);
