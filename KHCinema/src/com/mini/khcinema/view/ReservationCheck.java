@@ -1,25 +1,23 @@
 package com.mini.khcinema.view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import com.mini.khcinema.controller.MemberController;
 import com.mini.khcinema.controller.PaymentController;
 import com.mini.khcinema.model.MovieReserve;
-import com.mini.khcinema.model.MovieReserve;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.SwingConstants;
 
 public class ReservationCheck extends JPanel {
 
@@ -29,7 +27,7 @@ public class ReservationCheck extends JPanel {
 	String s1 = "";
 	ReservationCheck reservationcheck = this;
 
-	public ReservationCheck(JPanel startPanel) {
+	public ReservationCheck(JPanel startPanel, JFrame mainF) {
 		setBackground(new Color(255, 255, 255));
 		setSize(900, 600);
 
@@ -66,7 +64,7 @@ public class ReservationCheck extends JPanel {
 		if(reservationInfo.size()==0) {
 			JOptionPane.showMessageDialog(null, "예매 정보가 없습니다.");
 			startPanel.removeAll();
-			startPanel.add(new One(startPanel));
+			startPanel.add(new One(startPanel, mainF));
 			startPanel.revalidate();
 			startPanel.repaint();
 		}
@@ -241,7 +239,7 @@ public class ReservationCheck extends JPanel {
 				// 예매가 취소 돼서 text 파일안에 내용 지워짐.
 				new PaymentController().saveMoveReserve(reservationInfo);
 				startPanel.removeAll();
-				startPanel.add(new One(startPanel));
+				startPanel.add(new One(startPanel,mainF));
 				startPanel.revalidate();
 				startPanel.repaint();
 			}

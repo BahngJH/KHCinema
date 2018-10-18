@@ -97,20 +97,25 @@ public class MemberController {
 	}
 
 	// 로그인 확인(ID, Password 체크) 메소드
-	public boolean loginCheck(String id, String password) {
+	public String loginCheck(String id, String password) {
+		if(id.equals("admin") && password.equals("admin")) {
+			return "admin";
+		}
 		ArrayList<Member> login = new ArrayList();
 		login = GetMembers();
 		for (int i = 0; i < login.size(); i++) {
 			Member m = (Member) login.get(i);
 
+			
+			
 			if (m.getId().equals(id) && m.getPassword().equals(password)) {
 				loginID = m.getId();// 현재 로그인 접속자
-				return true;
+				return "true";
 
 			}
 
 		}
-		return false;
+		return "false";
 	}
 
 	// Password 확인 메소드

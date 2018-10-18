@@ -108,7 +108,7 @@ public class MainFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				startPanel.removeAll();
-				startPanel.add(new One(startPanel));
+				startPanel.add(new One(startPanel, mainFrame));
 				revalidate();
 				repaint();
 				
