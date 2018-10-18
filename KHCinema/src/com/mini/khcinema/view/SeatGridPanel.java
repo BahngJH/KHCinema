@@ -16,6 +16,8 @@ import com.mini.khcinema.model.MovieReserve;
 public class SeatGridPanel extends JPanel {
 
 	boolean seatflag[][] = new boolean[5][8];
+	int Reserveseat[][] = new int[5][8];
+
 	int select = 0; // 좌석이 선택될 때 마다 증가시킴
 
 	public SeatGridPanel(String title, String date, String movitime, int count) {
@@ -40,23 +42,29 @@ public class SeatGridPanel extends JPanel {
 				seat[i][j].addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						// 마우스 클릭이벤트를 받으면서 flag 값이 좌석 비었음 일 때
-						if (e.getButton() == 1 && seatflag[r][c] == false) {
-							// 전달 받은 인원수가 선택된 좌석보다 많을 경우 이벤트 처리
-							if (select >= count) {
-								JOptionPane.showMessageDialog(null, "선택 가능한 좌석을 초과했습니다.");
-							} else {
-								// 해당좌석의 배경을 검게 만들어 체크된 표시를 해준다.
-								seat[r][c].setBackground(Color.black);
-								seatflag[r][c] = true;
-								select++;
-							}
-						} else if (e.getButton() == 1 && seatflag[r][c] == true) {
-							seat[r][c].setBackground(Color.white);
-							seatflag[r][c] = false;
-							select--;
-						}
 
+						if (e.getButton() == 1 && Reserveseat[r][c] == 1)
+							JOptionPane.showMessageDialog(null, "이미 예약된 좌석입니다.");
+						else {
+
+							// 마우스 클릭이벤트를 받으면서 flag 값이 좌석 비었음 일 때
+							if (e.getButton() == 1 && seatflag[r][c] == false) {
+								// 전달 받은 인원수가 선택된 좌석보다 많을 경우 이벤트 처리
+								if (select >= count) {
+									JOptionPane.showMessageDialog(null, "선택 가능한 좌석을 초과했습니다.");
+								} else {
+									// 해당좌석의 배경을 검게 만들어 체크된 표시를 해준다.
+									seat[r][c].setBackground(Color.black);
+									seatflag[r][c] = true;
+									select++;
+								}
+
+							} else if (e.getButton() == 1 && seatflag[r][c] == true) {
+								seat[r][c].setBackground(Color.white);
+								seatflag[r][c] = false;
+								select--;
+							}
+						}
 					}
 				});
 
@@ -89,6 +97,8 @@ public class SeatGridPanel extends JPanel {
 						--col;
 						// 복원된 데이터를 넣어서 비활성화 해준다.
 						seat[row][col].setEnabled(false);
+						seat[row][col].setText("X");
+						Reserveseat[row][col] = 1;
 					}
 				}
 			}
