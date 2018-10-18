@@ -96,6 +96,7 @@ public class PaymentPanel extends JPanel {
 				MovieReserve info = new MovieReserve(movititle, date, movitime, seat, personNum, myID);
 				ArrayList list = new ArrayList();
 				mf.remove(pm);
+				mf.add(new StartPanel());
 				mf.revalidate();
 				mf.repaint();
 				System.out.println(info);
