@@ -26,6 +26,7 @@ import com.mini.khcinema.controller.MouseEventController;
 import com.mini.khcinema.controller.OrderController;
 import com.mini.khcinema.model.FoodList;
 import com.mini.khcinema.view.StartPanel;
+import javax.swing.JScrollPane;
 
 public class FoodOrderPanel extends JPanel {
 	private JTextField pcprice;
@@ -204,7 +205,7 @@ public class FoodOrderPanel extends JPanel {
 		// 사이드메뉴
 		String[] sidemenu = { "선택 안함", "버터구이 오징어", "나초", "핫도그", "츄러스" };
 		JComboBox combosideMenu = new JComboBox(sidemenu);
-		combosideMenu.setBounds(370, 222, 110, 30);
+		combosideMenu.setBounds(375, 224, 110, 30);
 		panel.add(combosideMenu);
 		combosideMenu.setVisible(true);
 
@@ -442,21 +443,30 @@ public class FoodOrderPanel extends JPanel {
 
 			}
 		});
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(13, 375, 157, 164);
+		panel.add(scrollPane);
 
 		popField = new JTextArea();
-		popField.setBounds(13, 375, 157, 164);
-		panel.add(popField);
+		scrollPane.setViewportView(popField);
 		popField.setColumns(10);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(184, 375, 157, 164);
+		panel.add(scrollPane_1);
 
 		drField = new JTextArea();
+		scrollPane_1.setViewportView(drField);
 		drField.setColumns(10);
-		drField.setBounds(184, 375, 157, 164);
-		panel.add(drField);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(354, 375, 157, 164);
+		panel.add(scrollPane_2);
 
 		sideField = new JTextArea();
+		scrollPane_2.setViewportView(sideField);
 		sideField.setColumns(10);
-		sideField.setBounds(354, 375, 157, 164);
-		panel.add(sideField);
 		
 		// 장바구니
 

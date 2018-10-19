@@ -1,13 +1,16 @@
 package com.mini.khcinema.view.mymenu;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.print.attribute.standard.MediaSize.Other;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -62,22 +65,48 @@ public class FoodListCheck extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(101, 175, 151, 262);
 		add(scrollPane);
-
+		String imgPathPayment1 = "Images/popcorn.png";
+		ImageIcon originIconpayment1 = new ImageIcon(imgPathPayment1);
+		Image originImgPayment1 = originIconpayment1.getImage();
+		Image changedImgPayment1 = originImgPayment1.getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+		ImageIcon Icon = new ImageIcon(changedImgPayment1);
+		JLabel img = new JLabel(Icon);
+		img.setSize(113, 81);
+		img.setLocation(120, 84);
+		add(img);
 		JTextArea textArea_5 = new JTextArea();
 		scrollPane.setViewportView(textArea_5);
 		textArea_5.setWrapStyleWord(true);
 		textArea_5.setLineWrap(true);
-
+		setVisible(true);
 		// 사이드
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(427, 175, 151, 262);
 		add(scrollPane_2);
-
+		String imgPathPayment3 = "Images/hotdog.png";
+		ImageIcon originIconpayment3 = new ImageIcon(imgPathPayment3);
+		Image originImgPayment3 = originIconpayment3.getImage();
+		Image changedImgPayment3 = originImgPayment3.getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+		ImageIcon Icon3 = new ImageIcon(changedImgPayment3);
+		JLabel img3 = new JLabel(Icon3);
+		img3.setSize(113, 81);
+		img3.setLocation(441, 84);
+		add(img3);
 		JTextArea textArea_10 = new JTextArea();
 		scrollPane_2.setViewportView(textArea_10);
 		textArea_10.setLineWrap(true);
+		setVisible(true);
 
 		// 드링크
+		String imgPathPayment2 = "Images/coke.png";
+		ImageIcon originIconpayment2 = new ImageIcon(imgPathPayment2);
+		Image originImgPayment2 = originIconpayment2.getImage();
+		Image changedImgPayment2 = originImgPayment2.getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+		ImageIcon Icon2 = new ImageIcon(changedImgPayment2);
+		JLabel img2 = new JLabel(Icon2);
+		img2.setSize(113, 81);
+		img2.setLocation(280, 84);
+		add(img2);
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(264, 175, 151, 262);
 		add(scrollPane_1);
@@ -85,8 +114,9 @@ public class FoodListCheck extends JPanel {
 		JTextArea textArea_3 = new JTextArea();
 		scrollPane_1.setViewportView(textArea_3);
 		textArea_3.setLineWrap(true);
-
+		setVisible(true);
 		// 합계
+		
 		JTextArea textArea = new JTextArea("합계");
 
 		textArea.setBounds(590, 176, 162, 260);
@@ -110,7 +140,7 @@ public class FoodListCheck extends JPanel {
 						+ f.getSidenum() + "개\n" + "-----------------------------------\n");
 			}
 
-			textArea.setText("합계\n" + f.getSum());
+			textArea.setText("-----합계-----\n" + f.getSum());
 		}
 
 		// 이전 예매 내역을 보기위한 이벤트!
