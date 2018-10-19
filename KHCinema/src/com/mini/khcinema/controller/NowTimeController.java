@@ -23,11 +23,11 @@ public class NowTimeController extends Thread {
 			
 			Date time = new Date();
 			
-			String NowTime = timeform.format(time);
+			String nowTime = timeform.format(time);
 			
 			try {
 				Thread.sleep(1000);
-				l.setText(NowTime);
+				l.setText(nowTime);
 				
 			} catch (InterruptedException e) {
 				e.printStackTrace();
