@@ -85,6 +85,10 @@ public class One extends JPanel {
 		button_1.setBorderPainted(false);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				startPanel.removeAll();
+				startPanel.add(new FoodListCheck(startPanel, mainF));
+				startPanel.revalidate();
+				startPanel.repaint();
 			}
 		});
 

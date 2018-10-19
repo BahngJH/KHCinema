@@ -94,6 +94,16 @@ public class MainFrame extends JFrame {
 		JButton foodButton = new JButton("  \uC74C\uC2DD \uAD6C\uB9E4", ic);
 		foodButton.setHorizontalAlignment(SwingConstants.LEFT);
 		foodButton.setBackground(new Color(245, 245, 220));
+		foodButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				startPanel.removeAll();
+				startPanel.add(new FoodOrderPanel(startPanel));
+				revalidate();
+				repaint();
+			}
+		});
 		panel.add(foodButton);
 		
 		
