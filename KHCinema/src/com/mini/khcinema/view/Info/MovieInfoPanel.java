@@ -12,13 +12,16 @@ import javax.swing.JPanel;
 
 import com.mini.khcinema.controller.MovieController;
 import com.mini.khcinema.model.Movie;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 public class MovieInfoPanel extends JPanel {
 	JPanel infoPanel;
 	public MovieInfoPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
 		JPanel btnPanel = new JPanel();
-		btnPanel.setBackground(new Color(192, 192, 192));
+		btnPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		btnPanel.setBackground(new Color(255,242,230));
 		add(btnPanel, BorderLayout.NORTH);
 				
 		//영화 정보 버튼
@@ -51,6 +54,7 @@ public class MovieInfoPanel extends JPanel {
 		btnPanel.add(btnReview);
 				
 		infoPanel = new InfoPanel(movie);
+		infoPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		add(infoPanel, BorderLayout.CENTER);
 	}
 }

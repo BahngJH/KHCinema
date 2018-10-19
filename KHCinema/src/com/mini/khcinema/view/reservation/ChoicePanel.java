@@ -41,7 +41,7 @@ public class ChoicePanel extends JPanel {
 	ChoicePanel choicePanel = this;
 
 	public ChoicePanel(JPanel startPanel) {
-		setBackground(new Color(255, 255, 255));
+		setBackground(new Color(255,242,230));
 		setSize(900, 600);
 
 		setLayout(null);
@@ -450,16 +450,12 @@ public class ChoicePanel extends JPanel {
 		// 좌석 버튼 생성
 
 		JButton nextBtn = new JButton("");
-		nextBtn.setBackground(new Color(255, 255, 255));
+		nextBtn.setBackground(new Color(255,242,230));
 		nextBtn.setIcon(new ImageIcon("Images/rightarrow1.png"));
 		nextBtn.setSelectedIcon(new ImageIcon("Images/rightarrow1.png"));
 		nextBtn.setFont(new Font("굴림", Font.PLAIN, 13));
 		nextBtn.setBorderPainted(false);
 		
-		nextBtn.addActionListener(new ActionListener() {			
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		nextBtn.setBounds(602, 485, 148, 52);
 		nextBtn.setVisible(true);
 		add(nextBtn);

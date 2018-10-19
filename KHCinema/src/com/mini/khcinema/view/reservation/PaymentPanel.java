@@ -26,7 +26,7 @@ public class PaymentPanel extends JPanel {
 
 	public PaymentPanel(String movititle, String date, String movitime, String[] seat, int personNum, String myID, JPanel mf,
 			int price) {
-		setBackground(Color.LIGHT_GRAY);
+		setBackground(new Color(255,242,230));
 		setForeground(new Color(0, 0, 0));
 		setLayout(null);
 

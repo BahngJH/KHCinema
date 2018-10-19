@@ -28,7 +28,7 @@ public class ReservationCheck extends JPanel {
 	ReservationCheck reservationcheck = this;
 
 	public ReservationCheck(JPanel startPanel, JFrame mainF) {
-		setBackground(new Color(255, 255, 255));
+		setBackground(new Color(255,242,230));
 		setSize(900, 600);
 
 		setLayout(null);
@@ -54,8 +54,8 @@ public class ReservationCheck extends JPanel {
 		int count = 0;
 		for (int i = 0; i < tmp.size(); i++) {
 			if (MemberController.loginID.equals(tmp.get(i).getMyID())) {
-				System.out.println(count);
-				reservationInfo.add(tmp.get(count++));
+				reservationInfo.add(tmp.get(i));
+				count++;
 			}
 		}
 
