@@ -97,7 +97,7 @@ public class SeatGridPanel extends JPanel {
 						--col;
 						// 복원된 데이터를 넣어서 비활성화 해준다.
 						seat[row][col].setEnabled(false);
-						seat[row][col].setText("X");
+						//seat[row][col].setText("X");
 						Reserveseat[row][col] = 1;
 					}
 				}
