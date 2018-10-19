@@ -22,7 +22,7 @@ public class ReservationPanel extends JPanel {
 	public ReservationPanel(JPanel mf, String title, String date, String movitime, int teenCount, int adultCount) {
 
 		int count = teenCount + adultCount;
-		int price = (teenCount*6000)+(adultCount*10000); 
+		//int price = (teenCount*6000)+(adultCount*10000); 
 
 		setLayout(new BorderLayout());
 		this.mf = mf;
@@ -33,11 +33,8 @@ public class ReservationPanel extends JPanel {
 		JButton screen = new JButton("스크린");
 		JButton payment = new JButton("결제하기");
 		JPanel south = new JPanel();
-		JLabel exit = new JLabel("출구");
 		screen.setBackground(Color.white);
 		screen.setToolTipText("아무기능이 없는 버튼입니다.");
-
-		exit.setFont(new Font("고딕", Font.ITALIC, 30));
 
 		// 좌석의 패널을 불러오는 것
 		SeatGridPanel seatgrid = new SeatGridPanel(title, date, movitime, count);
@@ -45,9 +42,23 @@ public class ReservationPanel extends JPanel {
 
 		add(screen, BorderLayout.NORTH);
 		south.setLayout(new BorderLayout());
-		south.add(exit, BorderLayout.WEST);
 		south.add(payment, BorderLayout.EAST);
 		add(south, BorderLayout.SOUTH);
+		
+		JButton returnbtn = new JButton("돌아가기");
+		south.add(returnbtn, BorderLayout.WEST);
+		
+		returnbtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mf.remove(rj);
+				mf.add(new ChoicePanel(mf,title,date,movitime));
+				mf.revalidate();
+				mf.repaint();
+				
+			}
+		});
 
 		payment.addActionListener(new ActionListener() {
 			@Override
@@ -68,7 +79,7 @@ public class ReservationPanel extends JPanel {
 					for (int i = 0; i < w; i++)
 						System.out.println(seat[i]);
 					mf.remove(rj);
-					mf.add(new PaymentPanel(title, date, movitime, seat, count, MemberController.loginID, mf,price));
+					mf.add(new PaymentPanel(title, date, movitime, seat, count, MemberController.loginID, mf,teenCount,adultCount));
 					mf.revalidate();
 					mf.repaint();
 				}

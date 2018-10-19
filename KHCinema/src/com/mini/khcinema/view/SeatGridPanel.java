@@ -28,6 +28,7 @@ public class SeatGridPanel extends JPanel {
 		// Flow의 좌우, 위아래 간격을 조정하는 함수 제일 처음은 정렬을 나타냄
 		setLayout(new FlowLayout(0, 40, 50));
 		// char형 65는 문자 A를 나타냄
+		
 		char alpa = 65;
 		JButton[][] seat = new JButton[5][8];
 
