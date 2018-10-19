@@ -24,7 +24,7 @@ public class InfoPanel extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel imagePanel = new JPanel();
-		imagePanel.setBackground(new Color(245, 245, 220));
+		imagePanel.setBackground(new Color(255, 255, 255));
 		add(imagePanel, BorderLayout.WEST);
 
 		ImageIcon ic = new ImageIcon(movie.getImagePath());
@@ -37,7 +37,6 @@ public class InfoPanel extends JPanel {
 		imagePanel.add(l);
 
 		JPanel infoPanel = new JPanel();
-		infoPanel.setBackground(new Color(245, 245, 220));
 		add(infoPanel, BorderLayout.CENTER);
 		GridBagLayout gbl_infoPanel = new GridBagLayout();
 		gbl_infoPanel.columnWidths = new int[] { 115, 115, 115, 115, 0 };
@@ -47,6 +46,7 @@ public class InfoPanel extends JPanel {
 		infoPanel.setLayout(gbl_infoPanel);
 
 		JLabel title = new JLabel("제목");
+		title.setBackground(new Color(255, 250, 205));
 		GridBagConstraints gbc_title = new GridBagConstraints();
 		gbc_title.fill = GridBagConstraints.VERTICAL;
 		gbc_title.insets = new Insets(0, 0, 5, 5);
@@ -55,6 +55,7 @@ public class InfoPanel extends JPanel {
 		infoPanel.add(title, gbc_title);
 
 		JLabel titleLabel = new JLabel(movie.getTitle());
+		titleLabel.setBackground(new Color(0, 139, 139));
 		GridBagConstraints gbc_titleLabel = new GridBagConstraints();
 		gbc_titleLabel.fill = GridBagConstraints.VERTICAL;
 		gbc_titleLabel.insets = new Insets(0, 0, 5, 5);
@@ -193,7 +194,7 @@ public class InfoPanel extends JPanel {
 		infoPanel.add(scoreLabel, gbc_scoreLabel);
 
 		JTextPane textPane = new JTextPane();
-		textPane.setBackground(new Color(245, 245, 220));
+		textPane.setBackground(new Color(255, 255, 255));
 		textPane.setText(movie.getSummary());
 		textPane.setEditable(false);
 		add(textPane, BorderLayout.SOUTH);
