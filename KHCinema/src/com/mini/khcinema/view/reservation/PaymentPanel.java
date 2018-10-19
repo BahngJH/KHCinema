@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.mini.khcinema.controller.MemberController;
 import com.mini.khcinema.controller.PaymentController;
 import com.mini.khcinema.model.MovieReserve;
 import com.mini.khcinema.view.StartPanel;
@@ -25,7 +26,10 @@ public class PaymentPanel extends JPanel {
 	private PaymentPanel pm;
 
 	public PaymentPanel(String movititle, String date, String movitime, String[] seat, int personNum, String myID, JPanel mf,
-			int price) {
+			int teenCount,int adultCount) {
+		
+		int price = (teenCount*6000)+(adultCount*10000); 
+		
 		setBackground(Color.LIGHT_GRAY);
 		setForeground(new Color(0, 0, 0));
 		setLayout(null);
@@ -63,7 +67,7 @@ public class PaymentPanel extends JPanel {
 		paybtn.setBounds(681, 504, 75, 27);
 		add(paybtn);
 
-		JButton cancelbtn = new JButton("취소");
+		JButton cancelbtn = new JButton("뒤로");
 		cancelbtn.setBounds(592, 504, 75, 27);
 		add(cancelbtn);
 
@@ -88,8 +92,6 @@ public class PaymentPanel extends JPanel {
 		lblNewLabel_1.setBounds(388, 396, 285, 27);
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		add(lblNewLabel_1);
-
-		String test = "커밋 테스트중";
 		
 		paybtn.addActionListener(new ActionListener() {
 
@@ -128,7 +130,7 @@ public class PaymentPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mf.remove(pm);
-				mf.add(new StartPanel());
+				mf.add(new ReservationPanel(mf, movititle, date, movitime,teenCount,adultCount));
 				mf.revalidate();
 				mf.repaint();
 			}
