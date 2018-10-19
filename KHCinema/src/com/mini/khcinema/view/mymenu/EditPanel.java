@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.mymenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 
 import com.mini.khcinema.controller.MemberController;
 import com.mini.khcinema.model.Member;
+import com.mini.khcinema.view.StartPanel;
+import com.mini.khcinema.view.login.CinemaMainFrame;
 
 public class EditPanel extends JPanel{
 

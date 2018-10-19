@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.admin;
 
 import java.awt.Color;
 import java.awt.Font;

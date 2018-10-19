@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.reservation;
 
 import java.awt.Color;
 import java.awt.FlowLayout;

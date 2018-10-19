@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.mymenu;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;

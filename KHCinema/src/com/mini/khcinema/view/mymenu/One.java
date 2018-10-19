@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.mymenu;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import com.mini.khcinema.controller.MemberController;
 import com.mini.khcinema.model.Member;
+import com.mini.khcinema.view.login.CinemaMainFrame;
 
 public class One extends JPanel {
 

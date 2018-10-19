@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.reservation;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 
 import com.mini.khcinema.controller.PaymentController;
 import com.mini.khcinema.model.MovieReserve;
+import com.mini.khcinema.view.StartPanel;
+
 import java.awt.Color;
 import java.awt.SystemColor;
 
