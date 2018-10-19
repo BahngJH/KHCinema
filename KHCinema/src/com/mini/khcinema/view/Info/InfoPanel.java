@@ -23,10 +23,12 @@ public class InfoPanel extends JPanel {
 	public InfoPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
 
+		//영화 포스터 패널
 		JPanel imagePanel = new JPanel();
 		imagePanel.setBackground(new Color(255, 255, 255));
 		add(imagePanel, BorderLayout.WEST);
 
+		//라벨에 영화 포스터 아이콘 넣기
 		ImageIcon ic = new ImageIcon(movie.getImagePath());
 		Image originImg = ic.getImage();
 		Image changedImg = originImg.getScaledInstance(200, 300, Image.SCALE_SMOOTH);
@@ -36,6 +38,7 @@ public class InfoPanel extends JPanel {
 		l.setSize(300, 500);
 		imagePanel.add(l);
 
+		//영화 정보 패널
 		JPanel infoPanel = new JPanel();
 		add(infoPanel, BorderLayout.CENTER);
 		GridBagLayout gbl_infoPanel = new GridBagLayout();
@@ -45,6 +48,7 @@ public class InfoPanel extends JPanel {
 		gbl_infoPanel.rowWeights = new double[] { 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
 		infoPanel.setLayout(gbl_infoPanel);
 
+		//영화 이름
 		JLabel title = new JLabel("제목");
 		title.setBackground(new Color(255, 250, 205));
 		GridBagConstraints gbc_title = new GridBagConstraints();
@@ -63,6 +67,7 @@ public class InfoPanel extends JPanel {
 		gbc_titleLabel.gridy = 0;
 		infoPanel.add(titleLabel, gbc_titleLabel);
 
+		//개봉일
 		JLabel premier = new JLabel("개봉일");
 		GridBagConstraints gbc_premier = new GridBagConstraints();
 		gbc_premier.insets = new Insets(0, 0, 5, 5);
@@ -78,6 +83,7 @@ public class InfoPanel extends JPanel {
 		gbc_premierLabel.gridy = 0;
 		infoPanel.add(premierLabel, gbc_premierLabel);
 
+		//상영시간
 		JLabel runTime = new JLabel("상영 시간");
 		GridBagConstraints gbc_runTime = new GridBagConstraints();
 		gbc_runTime.fill = GridBagConstraints.VERTICAL;
@@ -93,6 +99,7 @@ public class InfoPanel extends JPanel {
 		gbc_runTimeLabel.gridy = 1;
 		infoPanel.add(runTimeLabel, gbc_runTimeLabel);
 
+		//감독
 		JLabel director = new JLabel("감독");
 		GridBagConstraints gbc_director = new GridBagConstraints();
 		gbc_director.insets = new Insets(0, 0, 5, 5);
@@ -108,6 +115,7 @@ public class InfoPanel extends JPanel {
 		gbc_directorLabel.gridy = 1;
 		infoPanel.add(directorLabel, gbc_directorLabel);
 
+		//출연진
 		JLabel actors = new JLabel("출연진");
 		GridBagConstraints gbc_actors = new GridBagConstraints();
 		gbc_actors.insets = new Insets(0, 0, 5, 5);
@@ -137,6 +145,7 @@ public class InfoPanel extends JPanel {
 		gbc_actorsLabel.gridy = 2;
 		infoPanel.add(actorsLabel, gbc_actorsLabel);
 
+		//누적관객
 		JLabel cnt = new JLabel("누적관객");
 		GridBagConstraints gbc_cnt = new GridBagConstraints();
 		gbc_cnt.insets = new Insets(0, 0, 0, 5);
@@ -144,6 +153,7 @@ public class InfoPanel extends JPanel {
 		gbc_cnt.gridy = 3;
 		infoPanel.add(cnt, gbc_cnt);
 
+		// 예매한 파일을 열어서 예매한 사람 수를 계산
 		ArrayList m = new ArrayList<>();
 				
 		m =	new PaymentController().getMoveReserve();
@@ -164,6 +174,7 @@ public class InfoPanel extends JPanel {
 		gbc_cntLabel.gridy = 3;
 		infoPanel.add(cntLabel, gbc_cntLabel);
 
+		//평점
 		JLabel score = new JLabel("평점");
 		GridBagConstraints gbc_score = new GridBagConstraints();
 		gbc_score.insets = new Insets(0, 0, 0, 5);
@@ -193,6 +204,7 @@ public class InfoPanel extends JPanel {
 		gbc_scoreLabel.gridy = 3;
 		infoPanel.add(scoreLabel, gbc_scoreLabel);
 
+		//줄거리
 		JTextPane textPane = new JTextPane();
 		textPane.setBackground(new Color(255, 255, 255));
 		textPane.setText(movie.getSummary());

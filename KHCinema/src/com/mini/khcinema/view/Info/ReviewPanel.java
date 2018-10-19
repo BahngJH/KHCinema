@@ -16,6 +16,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -29,12 +30,12 @@ public class ReviewPanel extends JPanel {
 	private JTextField commentField;
 	private ArrayList<String> comments = new ArrayList<>();
 	ReviewController rc = new ReviewController();
-	
-	
+
 	public ReviewPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
 		setBackground(new Color(245, 245, 220));
-		
+
+		// 타이틀 패널
 		JPanel titlePanel = new JPanel();
 		titlePanel.setBackground(new Color(245, 245, 220));
 		add(titlePanel, BorderLayout.NORTH);
@@ -43,9 +44,8 @@ public class ReviewPanel extends JPanel {
 		JLabel reviewTitleLabel = new JLabel(movie.getTitle() + "의 후기");
 		reviewTitleLabel.setFont(new Font("굴림", Font.PLAIN, 23));
 		titlePanel.add(reviewTitleLabel, BorderLayout.CENTER);
-		
-		
 
+		// 리뷰 패널
 		JPanel commentPanel = new JPanel();
 		add(commentPanel, BorderLayout.SOUTH);
 		GridBagLayout gbl_commentPanel = new GridBagLayout();
@@ -58,25 +58,27 @@ public class ReviewPanel extends JPanel {
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
-		
+
+		// 리뷰가 달리는 testArea
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
 		panel.add(textArea);
-		
+
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		panel.add(scrollPane);
-		
+
 		String filename = movie.getTitle() + "리뷰" + ".txt";
 		// 리뷰 파일 열어서 정보 가져오기
 		ArrayList<Review> reviews = rc.getComment(filename);
-		
+
 		// 리뷰 창에 추가
 		for (Review r : reviews) {
-			textArea.append(r.getComment()+"\t[" + r.getScore() +"점]\n");
+			textArea.append(r.getComment() + "\t[" + r.getScore() + "점]\n");
 		}
 
+		// 댓글을 입력하는 textField
 		commentField = new JTextField();
-		
+
 		GridBagConstraints gbc_commentField = new GridBagConstraints();
 		gbc_commentField.fill = GridBagConstraints.BOTH;
 		gbc_commentField.insets = new Insets(0, 0, 0, 5);
@@ -85,10 +87,10 @@ public class ReviewPanel extends JPanel {
 		commentPanel.add(commentField, gbc_commentField);
 		commentField.setColumns(10);
 
-		
-		
+		// 평점을 선택하는 콤보박스
 		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0" }));
 		comboBox.setMaximumRowCount(11);
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 0, 5);
@@ -98,29 +100,35 @@ public class ReviewPanel extends JPanel {
 		commentPanel.add(comboBox, gbc_comboBox);
 		GridBagConstraints gbc_inputButton = new GridBagConstraints();
 
+		// 댓글을 입력하고 엔터를 누르면 등록되도록 하는 이벤트
 		commentField.addKeyListener(new KeyAdapter() {
-
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					String score = (String)comboBox.getSelectedItem();
-					rc.inputComment(commentField.getText(), filename, score);
-					textArea.append(commentField.getText()+"\t[" + score +"점]\n");
-					commentField.setText("");
+					if (!commentField.getText().equals("")) {
+						String score = (String) comboBox.getSelectedItem();
+						rc.inputComment(commentField.getText(), filename, score);
+						textArea.append(commentField.getText() + "\t[" + score + "점]\n");
+						commentField.setText("");
+					}else {
+						JOptionPane.showMessageDialog(null, "댓글을 입력해주세요.");
+					}
 				}
 			}
 
 		});
-		
-		
+
+		// 댓글을 입력하고 버튼을 누르면 등록되도록 하는 이벤트
 		JButton inputButton = new JButton("입력");
 		inputButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == inputButton) {
-					String score = (String)comboBox.getSelectedItem();
+				if (!commentField.getText().equals("")) {
+					String score = (String) comboBox.getSelectedItem();
 					rc.inputComment(commentField.getText(), filename, score);
-					textArea.append(commentField.getText()+"\t[" + score +"점]\n");
+					textArea.append(commentField.getText() + "\t[" + score + "점]\n");
 					commentField.setText("");
+				}else {
+					JOptionPane.showMessageDialog(null, "댓글을 입력해주세요.");
 				}
 			}
 		});
@@ -128,7 +136,6 @@ public class ReviewPanel extends JPanel {
 		gbc_inputButton.gridx = 2;
 		gbc_inputButton.gridy = 0;
 		commentPanel.add(inputButton, gbc_inputButton);
-		
-	}
 
+	}
 }

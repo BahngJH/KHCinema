@@ -32,6 +32,7 @@ public class NowMoviePanel extends JPanel {
 				image.setBackground(new Color(245, 245, 220));
 				add(image);
 				
+				//영화 이미지를 가져오는게 느려서 쓰레드로 각각 가져오도록 함
 				ImageThread inputT = new ImageThread(image, movies.get(i));
 				inputT.start();
 			}
