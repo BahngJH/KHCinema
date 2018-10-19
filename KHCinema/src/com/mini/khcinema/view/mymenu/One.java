@@ -21,7 +21,7 @@ import com.mini.khcinema.view.login.CinemaMainFrame;
 public class One extends JPanel {
 
 	public One(JPanel startPanel, JFrame mainF) {
-		setBackground(new Color(255, 255, 255));
+		setBackground(new Color(255,242,230));
 
 		setSize(894, 600);
 		setLayout(null);

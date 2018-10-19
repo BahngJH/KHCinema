@@ -15,7 +15,9 @@ import com.mini.khcinema.model.MovieReserve;
 
 public class SeatGridPanel extends JPanel {
 
+	//클릭된지 안된지 확인할 변수
 	boolean seatflag[][] = new boolean[5][8];
+	//예약된 좌석 확인할 변수
 	int Reserveseat[][] = new int[5][8];
 
 	int select = 0; // 좌석이 선택될 때 마다 증가시킴
@@ -42,11 +44,10 @@ public class SeatGridPanel extends JPanel {
 				seat[i][j].addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-
+						//예약된 좌석을 확인함
 						if (e.getButton() == 1 && Reserveseat[r][c] == 1)
 							JOptionPane.showMessageDialog(null, "이미 예약된 좌석입니다.");
 						else {
-
 							// 마우스 클릭이벤트를 받으면서 flag 값이 좌석 비었음 일 때
 							if (e.getButton() == 1 && seatflag[r][c] == false) {
 								// 전달 받은 인원수가 선택된 좌석보다 많을 경우 이벤트 처리
@@ -67,7 +68,6 @@ public class SeatGridPanel extends JPanel {
 						}
 					}
 				});
-
 			}
 			// 알파를 증가시켜 문자를 변화
 			alpa++;
@@ -98,6 +98,7 @@ public class SeatGridPanel extends JPanel {
 						// 복원된 데이터를 넣어서 비활성화 해준다.
 						seat[row][col].setEnabled(false);
 						//seat[row][col].setText("X");
+						//0일때 좌석이 비어있고 1일때 예약됨을 알려주는것
 						Reserveseat[row][col] = 1;
 					}
 				}

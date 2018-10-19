@@ -37,7 +37,7 @@ public class FoodPayment extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel pane = new JPanel();
-		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setBackground(new Color(255,242,230));
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 
@@ -90,6 +90,7 @@ public class FoodPayment extends JPanel {
 		scrollPane.setViewportView(textArea_5);
 		textArea_5.setWrapStyleWord(true);
 		textArea_5.setLineWrap(true);
+		textArea_5.setEditable(false);
 
 		// 사이드
 		JScrollPane scrollPane_2 = new JScrollPane();
@@ -99,7 +100,7 @@ public class FoodPayment extends JPanel {
 		JTextArea textArea_10 = new JTextArea();
 		scrollPane_2.setViewportView(textArea_10);
 		textArea_10.setLineWrap(true);
-
+		textArea_10.setEditable(false);
 		// 드링크
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(264, 175, 151, 262);
@@ -108,7 +109,9 @@ public class FoodPayment extends JPanel {
 		JTextArea textArea_3 = new JTextArea();
 		scrollPane_1.setViewportView(textArea_3);
 		textArea_3.setLineWrap(true);
-
+		textArea_3.setEditable(false);
+		
+		
 		// 파일출력하기 위한 확인 버튼
 		JButton OkBtn = new JButton("\uD655\uC778");
 		OkBtn.addActionListener(new ActionListener() {

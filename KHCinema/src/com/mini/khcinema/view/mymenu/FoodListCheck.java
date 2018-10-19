@@ -25,7 +25,7 @@ public class FoodListCheck extends JPanel {
 
 		ArrayList<ArrayList<FoodList>> al = new OrderController().getOrderFoods();
 		maxcnt = al.size();
-		setBackground(new Color(255, 255, 255));
+		setBackground(new Color(255,242,230));
 		setSize(900, 600);
 
 		setLayout(null);

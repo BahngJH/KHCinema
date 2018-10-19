@@ -3,6 +3,8 @@ package com.mini.khcinema.view;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -20,6 +22,21 @@ public class StartPanel extends JPanel {
 		panel.setLayout(null);
 		panel.setBounds(100, 100, 2000, 2000);
 		add(panel);
+		
+		SimpleDateFormat timeform = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		Date time = new Date();
+		
+		String nowTime = timeform.format(time);
+		
+		JLabel TimeLabel = new JLabel(nowTime);
+		TimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		TimeLabel.setFont(new Font("Arial Black", Font.PLAIN, 25));
+		TimeLabel.setBounds(219, 180, 313, 43);
+		panel.add(TimeLabel);
+
+		NowTimeController nowtime = new NowTimeController(TimeLabel);
+		nowtime.start();
 
 		ImageIcon icon1 = new ImageIcon("Images/mainlogo.png");
 		Image ic1 = icon1.getImage();
@@ -55,19 +72,12 @@ public class StartPanel extends JPanel {
 		Image ic4 = icon7.getImage();
 		Image changedlmg3 = ic4.getScaledInstance(1100, 525, Image.SCALE_SMOOTH);
 		ImageIcon icon8 = new ImageIcon(changedlmg3);
-
-		JLabel TimeLabel = new JLabel();
-		TimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		TimeLabel.setFont(new Font("Arial Black", Font.PLAIN, 25));
-		TimeLabel.setBounds(219, 180, 313, 43);
-		panel.add(TimeLabel);
-
-		NowTimeController nowtime = new NowTimeController(TimeLabel);
+		
 		JLabel jl4 = new JLabel(icon8);
 		jl4.setSize(1100, 525);
 		jl4.setLocation(-100, 135);
 		panel.add(jl4);
-		nowtime.start();
+		
 
 	}
 

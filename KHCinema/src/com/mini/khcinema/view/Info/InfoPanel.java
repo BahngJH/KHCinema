@@ -18,14 +18,16 @@ import com.mini.khcinema.controller.ReviewController;
 import com.mini.khcinema.model.Movie;
 import com.mini.khcinema.model.MovieReserve;
 import com.mini.khcinema.model.Review;
+import javax.swing.border.LineBorder;
 
 public class InfoPanel extends JPanel {
 	public InfoPanel(Movie movie) {
+		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setLayout(new BorderLayout(0, 0));
 
 		//영화 포스터 패널
 		JPanel imagePanel = new JPanel();
-		imagePanel.setBackground(new Color(255, 255, 255));
+		imagePanel.setBackground(new Color(255,242,230));
 		add(imagePanel, BorderLayout.WEST);
 
 		//라벨에 영화 포스터 아이콘 넣기
@@ -40,6 +42,7 @@ public class InfoPanel extends JPanel {
 
 		//영화 정보 패널
 		JPanel infoPanel = new JPanel();
+		infoPanel.setBackground(new Color(255,242,230));
 		add(infoPanel, BorderLayout.CENTER);
 		GridBagLayout gbl_infoPanel = new GridBagLayout();
 		gbl_infoPanel.columnWidths = new int[] { 115, 115, 115, 115, 0 };
@@ -206,7 +209,7 @@ public class InfoPanel extends JPanel {
 
 		//줄거리
 		JTextPane textPane = new JTextPane();
-		textPane.setBackground(new Color(255, 255, 255));
+		textPane.setBackground(new Color(228, 228, 228));
 		textPane.setText(movie.getSummary());
 		textPane.setEditable(false);
 		add(textPane, BorderLayout.SOUTH);

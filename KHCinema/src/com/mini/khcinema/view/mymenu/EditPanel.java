@@ -1,5 +1,6 @@
 package com.mini.khcinema.view.mymenu;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class EditPanel extends JPanel{
 		this.startPanel = startPanel;
 		
 		setLayout(null);
-	
+		setBackground(new Color(255,242,230));
 		ArrayList<Member> members = new MemberController().GetMembers();
 		
 		
