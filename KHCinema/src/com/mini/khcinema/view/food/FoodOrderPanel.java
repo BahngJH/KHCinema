@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.food;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

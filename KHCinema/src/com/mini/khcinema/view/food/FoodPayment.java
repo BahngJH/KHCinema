@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.food;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
 
 import com.mini.khcinema.controller.OrderController;
 import com.mini.khcinema.model.FoodList;
+import com.mini.khcinema.view.StartPanel;
 
 public class FoodPayment extends JPanel {
 

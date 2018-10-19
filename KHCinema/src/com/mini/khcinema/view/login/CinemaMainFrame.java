@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.login;
 
 import java.awt.BorderLayout;
 

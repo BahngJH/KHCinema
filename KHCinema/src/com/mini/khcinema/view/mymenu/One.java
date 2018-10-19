@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.mymenu;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import com.mini.khcinema.controller.MemberController;
 import com.mini.khcinema.model.Member;
+import com.mini.khcinema.view.login.CinemaMainFrame;
 
 public class One extends JPanel {
 
@@ -44,7 +45,7 @@ public class One extends JPanel {
 		add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("정보변경");
-		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBackground(new Color(250, 240, 230));
 		btnNewButton.setBounds(165, 185, 137, 116);
 		btnNewButton.addActionListener(new ActionListener() {
 
@@ -99,6 +100,17 @@ public class One extends JPanel {
 		jl.setSize(717, 189);
 		jl.setLocation(24, 347);
 		add(jl);
+		
+		JButton logoutButton = new JButton("로그아웃");
+		logoutButton.setBackground(new Color(250, 240, 230));
+		logoutButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new CinemaMainFrame("KH 시네마");
+				mainF.dispose();
+			}
+		});
+		logoutButton.setBounds(644, 60, 97, 23);
+		add(logoutButton);
 		
 		setVisible(true);
 

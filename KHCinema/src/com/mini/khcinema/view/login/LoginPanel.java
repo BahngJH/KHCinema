@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.login;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +12,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.mini.khcinema.controller.MemberController;
+import com.mini.khcinema.view.MainFrame;
+import com.mini.khcinema.view.admin.AdminFrame;
 
 public class LoginPanel extends JPanel {
 

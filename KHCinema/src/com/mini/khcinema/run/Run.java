@@ -1,7 +1,7 @@
 package com.mini.khcinema.run;
 
-import com.mini.khcinema.view.CinemaMainFrame;
 import com.mini.khcinema.view.MainFrame;
+import com.mini.khcinema.view.login.CinemaMainFrame;
 
 public class Run {
 

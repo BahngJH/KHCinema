@@ -15,6 +15,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import com.mini.khcinema.view.Info.NowMoviePanel;
+import com.mini.khcinema.view.food.FoodOrderPanel;
+import com.mini.khcinema.view.mymenu.One;
+import com.mini.khcinema.view.reservation.ChoicePanel;
+
 public class MainFrame extends JFrame {
 	MainFrame mainFrame = this;
 	//화면 전환이 되는 패널

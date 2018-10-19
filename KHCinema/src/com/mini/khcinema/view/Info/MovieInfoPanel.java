@@ -1,4 +1,4 @@
-package com.mini.khcinema.view;
+package com.mini.khcinema.view.Info;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,11 +18,12 @@ public class MovieInfoPanel extends JPanel {
 	public MovieInfoPanel(Movie movie) {
 		setLayout(new BorderLayout(0, 0));
 		JPanel btnPanel = new JPanel();
-		btnPanel.setBackground(new Color(245, 245, 220));
+		btnPanel.setBackground(new Color(192, 192, 192));
 		add(btnPanel, BorderLayout.NORTH);
 				
 		//영화 정보 버튼
 		JButton btnMovieInfo = new JButton("\uC601\uD654 \uC815\uBCF4");
+		btnMovieInfo.setBackground(new Color(192, 192, 192));
 		btnMovieInfo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -37,6 +38,7 @@ public class MovieInfoPanel extends JPanel {
 		
 		//영화 리뷰 버튼
 		JButton btnReview = new JButton("\uC601\uD654 \uD6C4\uAE30");
+		btnReview.setBackground(new Color(192, 192, 192));
 		btnReview.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
