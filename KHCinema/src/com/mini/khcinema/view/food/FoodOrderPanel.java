@@ -21,6 +21,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import com.mini.khcinema.controller.MemberController;
 import com.mini.khcinema.controller.MouseEventController;
 import com.mini.khcinema.controller.OrderController;
 import com.mini.khcinema.model.FoodList;
@@ -489,7 +490,8 @@ public class FoodOrderPanel extends JPanel {
 				list.setSidemenu((String) combosideMenu.getSelectedItem());
 				list.setSideprice(sideprice.getText());
 				list.setSidenum(sidenum.getText());
-
+				list.setMyID(MemberController.loginID);
+				
 				popField.append("이름 : " + list.getPopcorn() + "\n가격 : " + list.getPcprice() + "원\n수량 : " + list.getPcnum() + "개\n"
 						+ "-----------------------------------\n");
 				drField.append("이름 : " + list.getDrink() + "\n가격 : " + list.getDrprice() + "원\n수량 : " + list.getDrnum() + "개\n"
@@ -546,7 +548,8 @@ public class FoodOrderPanel extends JPanel {
 				list.setSidemenu((String) combosideMenu.getSelectedItem());
 				list.setSideprice(sideprice.getText());
 				list.setSidenum(sidenum.getText());
-
+				list.setMyID(MemberController.loginID);
+				
 				list.setSum(totalField.getText());
 				fd.add(list);
 				total = Integer.parseInt(totalField.getText());

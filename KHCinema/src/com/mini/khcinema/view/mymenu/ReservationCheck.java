@@ -51,11 +51,9 @@ public class ReservationCheck extends JPanel {
 		ArrayList<MovieReserve> tmp = new PaymentController().getMoveReserve();
 		ArrayList<MovieReserve> reservationInfo = new ArrayList<>();
 		
-		int count = 0;
 		for (int i = 0; i < tmp.size(); i++) {
 			if (MemberController.loginID.equals(tmp.get(i).getMyID())) {
 				reservationInfo.add(tmp.get(i));
-				count++;
 			}
 		}
 
