@@ -44,7 +44,7 @@ public class ChoicePanel extends JPanel {
 	ChoicePanel choicePanel = this;
 	
 	public ChoicePanel(JPanel startPanel,String title,String beforeDate, String movitime) {
-		setBackground(new Color(255, 255, 255));
+		setBackground(new Color(255,242,230));
 		setSize(900, 600);
 
 		setLayout(null);
@@ -459,7 +459,7 @@ public class ChoicePanel extends JPanel {
 		// 좌석 버튼 생성
 
 		JButton nextBtn = new JButton("");
-		nextBtn.setBackground(new Color(255, 255, 255));
+		nextBtn.setBackground(new Color(255,242,230));
 		nextBtn.setIcon(new ImageIcon("Images/rightarrow1.png"));
 		nextBtn.setSelectedIcon(new ImageIcon("Images/rightarrow1.png"));
 		nextBtn.setFont(new Font("굴림", Font.PLAIN, 13));
@@ -1040,6 +1040,7 @@ public class ChoicePanel extends JPanel {
 
 		}
 		
+		
 		// 청소년 인원 정보 출력! 
 		
 				JLabel la10 = new JLabel();
@@ -1076,7 +1077,7 @@ public class ChoicePanel extends JPanel {
 					
 				}
 				
-
+		
 		// 좌석 선택 버튼 이벤트 !
 		
 		nextBtn.addMouseListener(new MouseAdapter() {
