@@ -25,15 +25,23 @@ public class PaymentPanel extends JPanel {
 	static int count = 0;
 	private PaymentPanel pm;
 
+<<<<<<< HEAD
 	public PaymentPanel(String movititle, String date, String movitime, String[] seat, int personNum, String myID, JPanel mf,
 
 			int teenCount,int adultCount) {
+=======
+	public PaymentPanel(String movititle, String date, String movitime, String[] seat, int personNum, String myID, JPanel mf, int teenCount,int adultCount) {
+>>>>>>> branch 'master' of https://github.com/sinna94/KHCinema
 		
 		int price = (teenCount*6000)+(adultCount*10000); 
 		
 		setBackground(Color.LIGHT_GRAY);
+<<<<<<< HEAD
 		setBackground(new Color(255,242,230));
 
+=======
+		setBackground(new Color(255,242,230));
+>>>>>>> branch 'master' of https://github.com/sinna94/KHCinema
 		setForeground(new Color(0, 0, 0));
 		setLayout(null);
 

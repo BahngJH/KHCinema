@@ -31,10 +31,11 @@ public class FoodList implements Serializable {
 	private String drnum;
 	private String sidenum;
 	private String sum;
+	private String myID;
 
 	public FoodList() {}
 
-	public FoodList(String popcorn, String drink, String sidemenu, String pcprice, String drprice, String sideprice,String pcnum, String drnum, String sidenum,String sum) {
+	public FoodList(String popcorn, String drink, String sidemenu, String pcprice, String drprice, String sideprice,String pcnum, String drnum, String sidenum,String sum,String myID) {
 		super();
 		this.popcorn = popcorn;
 		this.drink = drink;
@@ -46,7 +47,7 @@ public class FoodList implements Serializable {
 		this.drnum=drnum;
 		this.sidenum=sidenum;
 		this.sum=sum;
-		
+		this.myID=myID;
 
 	}
 
@@ -130,12 +131,20 @@ public class FoodList implements Serializable {
 	public void setSum(String sum) {
 		this.sum = sum;
 	}
+	
+	public String getMyID() {
+		return myID;
+	}
+
+	public void setMyID(String myID) {
+		this.myID = myID;
+	}
 
 	@Override
 	public String toString() {
 		return "FoodList [popcorn=" + popcorn + ", drink=" + drink + ", sidemenu=" + sidemenu + ", pcprice=" + pcprice
 				+ ", drprice=" + drprice + ", sideprice=" + sideprice + ", pcnum=" + pcnum + ", drnum=" + drnum
-				+ ", sidenum=" + sidenum + ", sum=" + sum + "]";
+				+ ", sidenum=" + sidenum + ", sum=" + sum + "]"+ ", myID=" + myID + "]";
 	}
 
 	
