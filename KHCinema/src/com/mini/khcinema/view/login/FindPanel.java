@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.mini.khcinema.controller.MemberController;
+import java.awt.Color;
+import java.awt.Font;
 
 public class FindPanel extends JPanel {
 	private String findpassword;
@@ -23,40 +25,46 @@ public class FindPanel extends JPanel {
 	private boolean find;
 
 	public FindPanel(JFrame frame) {
-		frame.setSize(500, 300);
+		setBackground(Color.WHITE);
+		frame.setSize(300, 400);
 		frame.setTitle("KH 시네마 ID&Password 찾기");
 		setLayout(null);
 
 		// 라벨
 		JLabel findId = new JLabel("ID를 모르실 경우");
-		findId.setBounds(44, 38, 150, 15);
+		findId.setFont(new Font("굴림", Font.BOLD, 13));
+		findId.setBounds(32, 10, 120, 30);
 		add(findId);
 
 		JLabel findPw = new JLabel("Password 모르실 경우");
-		findPw.setBounds(44, 128, 150, 30);
+		findPw.setFont(new Font("굴림", Font.BOLD, 13));
+		findPw.setBounds(31, 161, 205, 30);
 		add(findPw);
 
 		JLabel mail = new JLabel("Mail 입력: ");
-		mail.setBounds(44, 68, 70, 30);
+		mail.setBounds(32, 50, 70, 30);
 		add(mail);
 
 		JLabel id = new JLabel("ID 입력: ");
-		id.setBounds(44, 158, 70, 30);
+		id.setBounds(31, 202, 70, 30);
 		add(id);
 
 		JTextField texMail = new JTextField();
-		texMail.setBounds(115, 68, 150, 30);
+		texMail.setBounds(111, 50, 150, 30);
 		add(texMail);
 
 		JTextField texId = new JTextField();
-		texId.setSize(150, 30);
-		texId.setLocation(115, 158);
+		texId.setBounds(110, 202, 150, 30);
 		add(texId);
 
-		// 뒤로가기버튼 이벤트
-		JButton backBtn = new JButton("뒤로가기");
-		backBtn.setBounds(199, 223, 120, 30);
-		add(backBtn);
+		// 로그인 하기버튼 이벤트
+		JButton backBtn = new JButton("로그인 하기");
+		backBtn.setBounds(32, 302, 225, 30);
+		backBtn.setForeground(Color.WHITE);
+		backBtn.setBackground(Color.RED);
+		add(backBtn);	
+		backBtn.setBorderPainted(false);
+
 		backBtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -71,7 +79,8 @@ public class FindPanel extends JPanel {
 
 		// ID 찾기 버튼 이벤트
 		JButton findIdBtn = new JButton("ID 찾기");
-		findIdBtn.setBounds(277, 68, 130, 30);
+		findIdBtn.setBounds(111, 79, 150, 30);
+		findIdBtn.setBackground(Color.WHITE);
 		add(findIdBtn);
 		findIdBtn.addActionListener(new ActionListener() {
 
@@ -81,13 +90,13 @@ public class FindPanel extends JPanel {
 
 			}
 		});
-
-		findIdBtn.setBounds(277, 68, 130, 30);
 		add(findIdBtn);
+		findIdBtn.setBorderPainted(false);
 
 		// Password 찾기 버튼 이벤트
 		JButton findPwBtn = new JButton("Password 찾기");
-		findPwBtn.setBounds(277, 158, 130, 30);
+		findPwBtn.setBounds(110, 231, 150, 30);
+		findPwBtn.setBackground(Color.WHITE);
 		add(findPwBtn);
 		findPwBtn.addActionListener(new ActionListener() {
 			@Override
@@ -107,6 +116,7 @@ public class FindPanel extends JPanel {
 
 			}
 		});
+		findPwBtn.setBorderPainted(false);
 
 	}
 
