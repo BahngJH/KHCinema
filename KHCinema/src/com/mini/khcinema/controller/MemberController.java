@@ -139,19 +139,25 @@ public class MemberController {
 
 	// 비밀번호 찾기 힌트&답 메소드
 	public String findPassword(String findHint, String findAnswer) {
-		ArrayList<Member> find = new ArrayList();
+		ArrayList<Member> find = new ArrayList<>();;
 		find = GetMembers();
 		String hint;
+
 		for (int i = 0; i < find.size(); i++) {
 			Member m = (Member) find.get(i);
 
+			System.out.println(m.getHint() + " " + findHint);
+			System.out.println(m.getAddress() + " " + findAnswer);
 			if (m.getHint().equals(findHint) && m.getAnswer().equals(findAnswer)) {
-
+				
+				m.getAnswer();
 				return "Password: " + m.getPassword() + "입니다.";
 			}
-		}
+			
 
-		return "비밀번호 힌트가 틀렸습니다.";
+		}
+		
+		return "비밀번호 힌트가 틀렸습니다." + " " + findAnswer;
 
 	}
 
