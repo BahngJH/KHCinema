@@ -67,7 +67,6 @@ public class One extends JPanel {
 		JButton button = new JButton("예매확인 / 취소");
 		button.setBackground(new Color(250, 240, 230));
 		button.setBounds(331, 186, 137, 116);
-		button.setBorderPainted(false);
 		add(button);
 
 		button.addMouseListener(new MouseAdapter() {
@@ -83,7 +82,6 @@ public class One extends JPanel {
 
 		JButton button_1 = new JButton("음식 확인 / 취소");
 		button_1.setBackground(new Color(250, 240, 230));
-		button_1.setBorderPainted(false);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				startPanel.removeAll();

@@ -184,7 +184,7 @@ public class FoodListCheck extends JPanel {
 						foodlistcheck.repaint();
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "처음입니다.");
+					JOptionPane.showMessageDialog(null, "처음 주문 내역 입니다.");
 
 				}
 			}
@@ -236,7 +236,7 @@ public class FoodListCheck extends JPanel {
 						foodlistcheck.repaint();
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "마지막입니다.");
+					JOptionPane.showMessageDialog(null, "마지막 주문 내역 입니다.");
 
 				}
 				super.mouseClicked(e);
