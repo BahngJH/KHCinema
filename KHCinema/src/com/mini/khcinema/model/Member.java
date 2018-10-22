@@ -11,27 +11,31 @@ public class Member implements Serializable {
 
 	private String id;
 	private String password;
+	private String hint;
+	private String answer;
 	private String name;
 	private String birth;
 	private String address;
 	private String phone;
-	private double point;
+
 	private String email;
 	private String gender;
 
 	public Member() {
+
 	}
 
-	public Member(String id, String password, String name, String birth, String address, String phone, double point,
-			String email, String gender) {
+	public Member(String id, String password, String hint, String answer, String name, String birth, String address,
+			String phone, String email, String gender) {
 		super();
 		this.id = id;
 		this.password = password;
+		this.hint = hint;
+		this.answer = answer;
 		this.name = name;
 		this.birth = birth;
 		this.address = address;
 		this.phone = phone;
-		this.point = point;
 		this.email = email;
 		this.gender = gender;
 	}
@@ -50,6 +54,22 @@ public class Member implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getHint() {
+		return hint;
+	}
+
+	public void setHint(String hint) {
+		this.hint = hint;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 
 	public String getName() {
@@ -84,14 +104,6 @@ public class Member implements Serializable {
 		this.phone = phone;
 	}
 
-	public double getPoint() {
-		return point;
-	}
-
-	public void setPoint(double point) {
-		this.point = point;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -108,10 +120,8 @@ public class Member implements Serializable {
 		this.gender = gender;
 	}
 
-	@Override
-	public String toString() {
-		return "Member [id=" + id + ", password=" + password + ", name=" + name + ", birth=" + birth + ", address="
-				+ address + ", phone=" + phone + ", point=" + point + ", email=" + email + ", gender=" + gender + "]";
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
