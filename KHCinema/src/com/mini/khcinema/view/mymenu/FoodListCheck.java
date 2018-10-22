@@ -41,12 +41,13 @@ public class FoodListCheck extends JPanel {
 		ArrayList<ArrayList<FoodList>> tmp = new OrderController().getOrderFoods();
 		ArrayList<ArrayList<FoodList>> foodreservationInfo = new ArrayList<>();
 
-		for (int i = 0; i < tmp.size(); i++) {
-			if (MemberController.loginID.equals(tmp.get(i).get(0).getMyID())) {
-				foodreservationInfo.add(tmp.get(i));
+		if (tmp != null) {
+			for (int i = 0; i < tmp.size(); i++) {
+				if (MemberController.loginID.equals(tmp.get(i).get(0).getMyID())) {
+					foodreservationInfo.add(tmp.get(i));
+				}
 			}
 		}
-
 		if (foodreservationInfo.size() == 0) {
 			JOptionPane.showMessageDialog(null, "주문 정보가 없습니다.");
 			startPanel.removeAll();
@@ -116,7 +117,7 @@ public class FoodListCheck extends JPanel {
 		textArea_3.setLineWrap(true);
 		setVisible(true);
 		// 합계
-		
+
 		JTextArea textArea = new JTextArea("합계");
 
 		textArea.setBounds(590, 176, 162, 260);
