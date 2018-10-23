@@ -277,7 +277,7 @@ public class SignUpPanel extends JPanel {
 					String hint = (String) (comboHint.getSelectedItem());
 					String answer = (String) (hintText.getText());
 
-					new MemberController().InputMember(idTxt.getText(), passwordTxt.getText(), hint, answer,
+					new MemberController().InputMember(idTxt.getText(), passwordTxt.getText(), hint, answer, 
 							nameTxt.getText(), birth, mailTxt.getText(), phoneTxt1.getText(), gen, addTxt.getText());
 					JOptionPane.showMessageDialog(null, "회원가입을 축하드립니다.");
 
