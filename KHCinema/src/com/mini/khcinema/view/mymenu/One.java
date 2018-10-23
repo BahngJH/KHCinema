@@ -25,7 +25,8 @@ public class One extends JPanel {
 
 		setSize(894, 600);
 		setLayout(null);
-
+		
+		
 		ImageIcon ic = new ImageIcon("Images/cinema.png");
 		Image ic1 = ic.getImage();
 
@@ -40,13 +41,24 @@ public class One extends JPanel {
 			}
 		}
 
+		ImageIcon icon1 = new ImageIcon("Images/mainlogo.png");
+		Image ic11 = icon1.getImage();
+		Image changedlmg1 = ic11.getScaledInstance(700, 200, Image.SCALE_SMOOTH);
+		ImageIcon icon2 = new ImageIcon(changedlmg1);
+		
+		JLabel jl = new JLabel(icon2);
+		jl.setSize(700, 200);
+		jl.setLocation(31, 43);
+		add(jl);
+		
+		
 		JLabel lblNewLabel = new JLabel("이름: " + member.getName());
-		lblNewLabel.setBounds(260, 57, 137, 29);
+		lblNewLabel.setBounds(344, 22, 137, 29);
 		add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("정보변경");
 		btnNewButton.setBackground(new Color(250, 240, 230));
-		btnNewButton.setBounds(165, 185, 137, 116);
+		btnNewButton.setBounds(146, 298, 137, 116);
 		btnNewButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -61,12 +73,12 @@ public class One extends JPanel {
 		add(btnNewButton);
 
 		JLabel label = new JLabel("아이디: " + member.getId());
-		label.setBounds(430, 57, 259, 29);
+		label.setBounds(514, 22, 259, 29);
 		add(label);
 
 		JButton button = new JButton("예매확인 / 취소");
 		button.setBackground(new Color(250, 240, 230));
-		button.setBounds(331, 186, 137, 116);
+		button.setBounds(312, 299, 137, 116);
 		add(button);
 
 		button.addMouseListener(new MouseAdapter() {
@@ -91,13 +103,8 @@ public class One extends JPanel {
 			}
 		});
 
-		button_1.setBounds(510, 186, 137, 116);
+		button_1.setBounds(491, 299, 137, 116);
 		add(button_1);
-
-		JLabel jl = new JLabel(icon5);
-		jl.setSize(717, 189);
-		jl.setLocation(24, 347);
-		add(jl);
 		
 		JButton logoutButton = new JButton("로그아웃");
 		logoutButton.setBackground(new Color(250, 240, 230));
@@ -107,7 +114,7 @@ public class One extends JPanel {
 				mainF.dispose();
 			}
 		});
-		logoutButton.setBounds(644, 60, 97, 23);
+		logoutButton.setBounds(651, 25, 97, 23);
 		add(logoutButton);
 		
 		setVisible(true);

@@ -12,14 +12,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.mini.khcinema.controller.MemberController;
+import java.awt.Color;
 
 public class FindCheckPanel extends JPanel {
 	String hintAs;
 	String comboHint1;
 
 	public FindCheckPanel(JFrame frame) {
+		setBackground(Color.WHITE);
 
-		frame.setSize(500, 250);
+		frame.setSize(350, 400);
 		frame.setTitle("KH시네마 비밀번호 찾기 힌트");
 		setLayout(null);
 
@@ -28,7 +30,7 @@ public class FindCheckPanel extends JPanel {
 		hint.setBounds(44, 38, 100, 15);
 		add(hint);
 		JLabel answer = new JLabel("답: ");
-		answer.setBounds(44, 60, 25, 15);
+		answer.setBounds(44, 96, 25, 15);
 		add(answer);
 
 		// 비밀번호 질문 선택 콤보박스
@@ -39,21 +41,29 @@ public class FindCheckPanel extends JPanel {
 
 		// 비밀번호 답변
 		JTextField answer1 = new JTextField();
-		answer1.setBounds(147, 60, 140, 20);
+		answer1.setBounds(147, 96, 140, 20);
 		setBounds(60, 85, 462, 283);
 		add(answer1);
 
 		JButton backBtn = new JButton("뒤로 가기");
-		backBtn.setBounds(44, 93, 100, 20);
+		backBtn.setBackground(Color.WHITE);
+		backBtn.setBounds(26, 150, 100, 20);
 		add(backBtn);
 
 		JButton loginBtn = new JButton("로그인");
-		loginBtn.setBounds(140, 93, 88, 20);
+		loginBtn.setForeground(Color.WHITE);
+		loginBtn.setBackground(Color.RED);
+		loginBtn.setBounds(44, 248, 245, 34);
 		add(loginBtn);
 
-		JButton checkBtn = new JButton("비밀번호 확인");
-		checkBtn.setBounds(227, 93, 118, 20);
+		JButton checkBtn = new JButton("ㅣ          비밀번호 확인");
+		checkBtn.setBackground(Color.WHITE);
+		checkBtn.setBounds(123, 150, 176, 20);
 		add(checkBtn);
+		
+		backBtn.setBorderPainted(false);
+		loginBtn.setBorderPainted(false);
+		checkBtn.setBorderPainted(false);
 
 		// 뒤로가기 버튼 리스너
 		backBtn.addActionListener(new ActionListener() {

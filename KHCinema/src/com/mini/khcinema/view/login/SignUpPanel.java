@@ -29,11 +29,13 @@ public class SignUpPanel extends JPanel {
 	private JTextField hintText;
 
 	public SignUpPanel(JFrame frame) {
+		setBackground(Color.WHITE);
 
-		frame.setSize(500, 450);
+		frame.setSize(480, 550);
 		frame.setTitle("KH 시네마 회원가입");
 
 		JLabel cinemaLb = new JLabel("회원가입");
+		cinemaLb.setFont(new Font("굴림", Font.BOLD, 13));
 		cinemaLb.setBackground(Color.BLACK);
 		cinemaLb.setBounds(40, 15, 72, 20);
 		add(cinemaLb);
@@ -44,12 +46,12 @@ public class SignUpPanel extends JPanel {
 		add(id);
 
 		JLabel nameLb = new JLabel("이름 :");// 이름 라벨
-		nameLb.setBounds(34, 199, 34, 20);
+		nameLb.setBounds(40, 210, 34, 20);
 		nameLb.setFont(new Font("굴림", Font.PLAIN, 13));
 		add(nameLb);
 
 		JLabel birtLb = new JLabel("법정생년월일 : ");// 생년월일 라벨
-		birtLb.setBounds(34, 229, 95, 20);
+		birtLb.setBounds(40, 240, 95, 20);
 		birtLb.setFont(new Font("굴림", Font.PLAIN, 13));
 		add(birtLb);
 
@@ -62,33 +64,33 @@ public class SignUpPanel extends JPanel {
 		add(pwcLb);
 
 		JLabel yearLb = new JLabel("년");
-		yearLb.setBounds(204, 231, 15, 20);
+		yearLb.setBounds(204, 240, 15, 20);
 		add(yearLb);
 
 		JLabel monLb = new JLabel("월");
-		monLb.setBounds(280, 230, 15, 20);
+		monLb.setBounds(280, 240, 15, 20);
 		add(monLb);
 
 		JLabel dateLb = new JLabel("일");
-		dateLb.setBounds(359, 230, 15, 20);
+		dateLb.setBounds(359, 240, 15, 20);
 		add(dateLb);
 
 		JLabel phoneLb = new JLabel("전화번호 : ");// 전화번호 라벨
-		phoneLb.setBounds(40, 268, 64, 20);
+		phoneLb.setBounds(40, 270, 64, 20);
 		phoneLb.setFont(new Font("굴림", Font.PLAIN, 13));
 		add(phoneLb);
 
 		JLabel sxLb = new JLabel("회원 성별 :");// 회원성별 라벨
-		sxLb.setBounds(256, 268, 70, 20);
+		sxLb.setBounds(256, 270, 70, 20);
 		add(sxLb);
 
 		JLabel mailLb = new JLabel("이메일 : ");// 이메일 라벨
-		mailLb.setBounds(40, 298, 60, 20);
+		mailLb.setBounds(40, 300, 60, 20);
 		mailLb.setFont(new Font("굴림", Font.PLAIN, 13));
 		add(mailLb);
 
 		JLabel addLb = new JLabel("주소 : ");// 주소 라벨
-		addLb.setBounds(40, 328, 40, 20);
+		addLb.setBounds(40, 330, 40, 20);
 		addLb.setFont(new Font("굴림", Font.PLAIN, 13));
 		add(addLb);
 
@@ -99,15 +101,17 @@ public class SignUpPanel extends JPanel {
 		setLayout(null);
 
 		male = new JRadioButton("남");// 남자 선택 버튼
-		male.setBounds(324, 268, 40, 20);
+		male.setBounds(324, 270, 40, 20);
 
 		female = new JRadioButton("여");// 여자 선택 버튼
-		female.setBounds(374, 268, 40, 20);
+		female.setBounds(374, 270, 40, 20);
 
 		bg.add(male);
 		bg.add(female);
 		add(male);
 		add(female);
+		
+		
 
 		idTxt = new JTextField();// ID 입력필드
 		idTxt.setBounds(135, 60, 120, 20);
@@ -123,40 +127,40 @@ public class SignUpPanel extends JPanel {
 		add(pwcTxt);
 
 		nameTxt = new JTextField();// 이름 입력창
-		nameTxt.setBounds(129, 199, 120, 20);
+		nameTxt.setBounds(135, 210, 120, 20);
 		nameTxt.setColumns(10);
 		add(nameTxt);
 
 		mailTxt = new JTextField(10);// 메일 입력필드
-		mailTxt.setBounds(135, 298, 115, 20);
+		mailTxt.setBounds(135, 300, 115, 20);
 		add(mailTxt);
 
 		addTxt = new JTextField(10);// 주소 입력 필드
-		addTxt.setBounds(135, 328, 290, 20);
+		addTxt.setBounds(135, 330, 290, 20);
 		add(addTxt);
 
 		phoneTxt1 = new JTextField(13);// 핸드폰 입력 필드
-		phoneTxt1.setBounds(135, 268, 115, 20);
+		phoneTxt1.setBounds(135, 270, 115, 20);
 		add(phoneTxt1);
 
 		// 비밀번호 찾기 힌트 콤보박스
 		String[] hint = { "어렸을적 별명은?", "출신 초등학교는?", "내 이름은?", "좋아하는 색은?", "부모님 성함?" };
 		JComboBox comboHint = new JComboBox(hint);
-		comboHint.setBounds(133, 144, 136, 20);
+		comboHint.setBounds(135, 150, 136, 20);
 		add(comboHint);
 
 		JLabel hintLb = new JLabel("비밀번호 힌트:");// 비밀번호 힌트 라벨
 		hintLb.setFont(new Font("굴림", Font.PLAIN, 13));
-		hintLb.setBounds(38, 143, 95, 20);
+		hintLb.setBounds(40, 150, 95, 20);
 		add(hintLb);
 
 		JLabel hint1 = new JLabel("힌트 답 : ");// 비밀번호 힌트 답 라벨
 		hint1.setFont(new Font("굴림", Font.PLAIN, 13));
-		hint1.setBounds(38, 174, 95, 20);
+		hint1.setBounds(40, 180, 95, 20);
 		add(hint1);
 
 		hintText = new JTextField(13);// 비밀번호 찾기 답 필드
-		hintText.setBounds(133, 174, 115, 20);
+		hintText.setBounds(135, 180, 115, 20);
 		add(hintText);
 
 		// 년도 콤보박스
@@ -169,7 +173,7 @@ public class SignUpPanel extends JPanel {
 		}
 
 		JComboBox<String> comboyear = new JComboBox(year);
-		comboyear.setBounds(129, 231, 60, 19);
+		comboyear.setBounds(135, 240, 60, 19);
 		add(comboyear);
 
 		// 월 콤보박스
@@ -178,7 +182,7 @@ public class SignUpPanel extends JPanel {
 			month[l - 1] = String.valueOf(l);
 		}
 		JComboBox<String> combomonth = new JComboBox(month);
-		combomonth.setBounds(225, 230, 40, 20);
+		combomonth.setBounds(225, 240, 40, 20);
 		add(combomonth);
 
 		// 일 콤보박스
@@ -188,11 +192,12 @@ public class SignUpPanel extends JPanel {
 
 		}
 		JComboBox<String> combodate = new JComboBox(date);
-		combodate.setBounds(304, 230, 40, 20);
+		combodate.setBounds(304, 240, 40, 20);
 		add(combodate);
 
 		// ID중복확인 버튼 이벤트
 		JButton idckBtn = new JButton("ID 중복확인 ");
+		idckBtn.setBackground(Color.WHITE);
 		idckBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				idck = new MemberController().memberCheck(idTxt.getText());
@@ -207,12 +212,13 @@ public class SignUpPanel extends JPanel {
 
 			}
 		});
-		idckBtn.setBounds(280, 60, 103, 25);
+		idckBtn.setBounds(322, 58, 103, 25);
 		add(idckBtn);
 
 		// 취소버튼 이벤트
 		JButton cancelBtn = new JButton("취소");
-		cancelBtn.setBounds(112, 378, 83, 23);
+		cancelBtn.setBackground(Color.WHITE);
+		cancelBtn.setBounds(60, 422, 130, 30);
 		cancelBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {// 취소버튼 이벤트
@@ -222,12 +228,13 @@ public class SignUpPanel extends JPanel {
 				frame.getContentPane().repaint();
 			}
 		});
-		cancelBtn.setFont(new Font("굴림", Font.PLAIN, 12));
+		cancelBtn.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		add(cancelBtn);
 
 		JButton rgBtn = new JButton("등록");// 등록버튼
-		rgBtn.setBounds(268, 378, 83, 23);
-		rgBtn.setFont(new Font("굴림", Font.PLAIN, 12));
+		rgBtn.setBackground(Color.RED);
+		rgBtn.setBounds(271, 422, 130, 30);
+		rgBtn.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		add(rgBtn);
 
 		// 등록 버튼 이벤트
@@ -290,6 +297,10 @@ public class SignUpPanel extends JPanel {
 			}
 
 		});
+		
+		rgBtn.setBorderPainted(false);
+		cancelBtn.setBorderPainted(false);
+		idckBtn.setBorderPainted(false);
 
 	}
 }
